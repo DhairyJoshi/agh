@@ -165,13 +165,9 @@ export default function TopHeader(props) {
 
     // category control support
     const [activeCategory, setActiveCategory] = useState(false)
-    const handleCategoryToggle = () => {
-        setActiveCategory(!activeCategory);
-    };
+    
     const [activeIndexCat, setActiveIndexCat] = useState(null);
-    const handleCatClick = (index) => {
-        setActiveIndexCat(activeIndexCat === index ? null : index);
-    };
+    
 
     const handleDialogueAction = (data) => {
         setLogout(false)
@@ -209,59 +205,11 @@ export default function TopHeader(props) {
 
     return (
         <>
-
             <div className="overlay" />
             <Login open={openLogin} state={setOpenLogin} />
             <Dialogue content={"Do you confirm you want to log out of your account?"} open={logout} fn={handleDialogueAction} />
             <Profile open={openProfile} setOpen={setOpenProfile} />
             <div className={`side-overlay ${(menuActive || activeCategory) && "show"}`} />
-            {/* ==================== Search Box Start Here ==================== */}
-            <form action="#" className={`search-box ${activeSearch && "active"}`}>
-                <button onClick={handleSearchToggle}
-                    type="button"
-                    className="search-box__close position-absolute inset-block-start-0 inset-inline-end-0 m-16 w-48 h-48 border border-gray-100 rounded-circle flex-center text-white hover-text-gray-800 hover-bg-white text-2xl transition-1"
-                >
-                    <i className="ph ph-x" />
-                </button>
-                <div className="container">
-                    <div className="position-relative">
-                        <input
-                            type="text"
-                            className="form-control py-16 px-24 text-xl rounded-pill pe-64"
-                            placeholder="Search for a product or brand"
-                            onChange={(e) => handleSearch(e)}
-                            ref={inputRef}
-                        />
-                        <button
-                            type="submit"
-                            className="w-48 h-48 bg-main-600 rounded-circle flex-center text-xl text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8"
-                        >
-                            <i className="ph ph-magnifying-glass" />
-                        </button>
-                    </div>
-                    {
-                        search ?
-                            <div className='ul-class' style={{ background: "#ffffff", color: "#000000", zIndex: "999", borderRadius: "20px", cursor: "pointer", marginTop: "0.5rem" }}>
-                                <ul style={{ maxHeight: "50vh", overflow: "auto" }}>
-                                    {
-                                        list?.map((data, index) => (
-                                            <li
-                                                key={index}
-                                                style={{ padding: "10px" }}
-                                                onClick={() => handleNavigation(data?.slug, true)}
-                                                className='list-class'
-                                            >{data?.product_name}</li>
-                                        ))
-                                    }
-
-                                </ul>
-                            </div>
-                            :
-                            <></>
-                    }
-                </div>
-            </form>
-            {/* ==================== Search Box End Here ==================== */}
             {/* ==================== Mobile Menu Start Here ==================== */}
             <div className={`mobile-menu scroll-sm d-lg-none d-block ${menuActive && "active"}`}>
                 <button onClick={() => { handleMenuToggle(); setActiveIndex(null) }} type="button" className="close-button">
@@ -428,104 +376,7 @@ export default function TopHeader(props) {
                 </div>
             </div>
             {/* ==================== Mobile Menu End Here ==================== */}
-            {/* ======================= Middle Top Start ========================= */}
-
-            {/* ======================= Middle Top End ========================= */}
-            {/* ======================= Middle Header Start ========================= */}
-            <header className="header-middle bg-color-one border-bottom border-gray-100">
-                <div className="container container-lg">
-                    <nav className="header-inner d-flex justify-content-center justify-content-sm-between">
-                        {/* Logo Start */}
-                        <div className="logo">
-                            <Link to="/" className="link" style={{ padding: "10px 0px" }}>
-                                {/* Large Screen Logo */}
-                                <img src={logo} alt="Logo" className="d-none d-sm-block" style={{ width: "120px" }} />
-
-                                {/* Small Screen Logo */}
-                                <img src={smallLogo} alt="Small Logo" className="d-block d-sm-none" style={{ width: "200px" }} />
-                            </Link>
-                        </div>
-                        {/* Logo End  */}
-                        {/* form location Start */}
-                        <form action="#" className="flex-align flex-wrap form-location-wrapper">
-                            <div className="search-category d-flex h-48 select-border-end-0 radius-end-0 search-form d-sm-flex d-none">
-                                <select defaultValue={1}
-                                    className="js-example-basic-single border border-gray-200 border-end-0"
-                                    name="state"
-                                >
-                                    <option value={1} >
-                                        All Categories
-                                    </option>
-                                    {
-                                        categories && categories?.data?.map((data, index) => (
-                                            <option key={index} value={index}>{data?.category_name}</option>
-
-                                        ))
-                                    }
-
-                                </select>
-                                <div className="search-form__wrapper position-relative">
-                                    <div>
-                                        <input
-                                            type="text"
-                                            className="search-form__input common-input py-13 ps-16 pe-18 rounded-end-pill pe-44"
-                                            placeholder="Search for a product or brand"
-                                            onChange={(e) => handleSearch(e)}
-                                            ref={inputRef}
-
-                                        />
-                                        <button
-                                            type="submit"
-                                            className="w-32 h-32 bg-main-600 rounded-circle flex-center text-xl text-white position-absolute top-50 translate-middle-y inset-inline-end-0 me-8"
-                                        >
-                                            <i className="ph ph-magnifying-glass" />
-                                        </button>
-                                    </div>
-                                    {
-                                        search ?
-                                            <div className='ul-class' style={{ width: "50%", background: "#ffffff", color: "#000000", zIndex: "999", borderRadius: "10px", cursor: "pointer" }}>
-                                                <ul style={{ maxHeight: "150px", overflow: "auto" }}>
-                                                    {
-                                                        list?.map((data, index) => (
-                                                            <li
-                                                                key={index}
-                                                                style={{ padding: "10px" }}
-                                                                onClick={() => handleNavigation(data?.slug)}
-                                                                className='list-class'
-                                                            >{data?.product_name}</li>
-                                                        ))
-                                                    }
-
-                                                </ul>
-                                            </div>
-                                            :
-                                            <></>
-                                    }
-
-                                </div>
-                            </div>
-
-                        </form>
-                        {/* form location start */}
-                        {/* Header Middle Right start */}
-                        {/* <div className="header-right flex-align d-lg-block d-none">
-                            <div className="flex-align flex-wrap gap-12">
-                                <button
-                                    type="button"
-                                    className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
-                                >
-                                    <span className="text-2xl text-gray-700 d-flex position-relative item-hover__text">
-                                        <i className="ph ph-magnifying-glass" />
-                                    </span>
-                                </button>
-
-                            </div>
-                        </div> */}
-                        {/* Header Middle Right End  */}
-                    </nav>
-                </div>
-            </header>
-            {/* ======================= Middle Header End ========================= */}
+            
             {/* ==================== Header Start Here ==================== */}
             <header className={`header bg-white border-bottom border-gray-100 ${scroll && "fixed-header"}`}>
                 <div className="container container-lg">
@@ -533,89 +384,13 @@ export default function TopHeader(props) {
                         <div className="flex-align menu-category-wrapper " style={{ width: "100%", justifyContent: "space-between" }}>
                             {/* Category Dropdown Start */}
                             <div className="category on-hover-item">
-                                <button
-                                    onClick={handleCategoryToggle}
-                                    type="button"
-                                    className="category__button flex-align gap-8 fw-medium p-16 border-end border-start border-gray-100 text-heading"
-                                >
-                                    <span className="icon text-2xl d-xs-flex d-none">
-                                        <i className="ph ph-dots-nine" />
-                                    </span>
-                                    <span className="d-sm-flex d-none">All</span> Categories
-                                    <span className="arrow-icon text-xl d-flex">
-                                        <i className="ph ph-caret-down" />
-                                    </span>
-                                </button>
-                                <div className={`responsive-dropdown cat on-hover-dropdown common-dropdown nav-submenu p-0 submenus-submenu-wrapper ${activeCategory && "active"}`}>
-                                    <button
-                                        onClick={() => { handleCategoryToggle(); setActiveIndexCat(null) }}
-                                        type="button"
-                                        className="close-responsive-dropdown rounded-circle text-xl position-absolute inset-inline-end-0 inset-block-start-0 mt-4 me-8 d-lg-none d-flex"
-                                    >
-                                        {" "}
-                                        <i className="ph ph-x" />{" "}
-                                    </button>
-                                    {/* Logo Start */}
-                                    <div className="logo px-16 d-lg-none d-block">
-                                        <Link to="/" className="link">
-                                            <img src={logo} style={{ width: "100px" }} alt="Logo" />
-                                        </Link>
-                                    </div>
-                                    {/* Logo End */}
-                                    <ul className="scroll-sm p-0 py-8 w-300 max-h-400 overflow-y-auto">
-                                        {/* {
-                                            categories && categories?.data?.map((data, index) => (
-                                                <li
-                                                    key={index}
-                                                    onClick={() => {
-                                                        handleCatClick(0);
-                                                        navigation(ROUTES.ProductByCategory, { state: data })
-                                                    }}
-                                                    className={`has-submenus-submenu ${activeIndexCat === 0 ? "active" : ""}`}
-                                                >
-                                                    <Link onClick={() => setActiveIndexCat(null)}
-                                                        to="#"
-                                                        className="text-gray-500 text-15 py-12 px-16 flex-align gap-8 rounded-0"
-                                                    >
-                                                        <span className="text-xl d-flex">
-                                                            <i className="ph ph-carrot" /> //comment this
-                                                            <img style={{ width: "30px" }} src={IMAGE + data?.category_image} alt={data.category_name} />
-                                                        </span>
-                                                        <span>{data?.category_name}</span>
-                                                        <span className="icon text-md d-flex ms-auto">
-                                                            <i className="ph ph-caret-right" />
-                                                        </span>
-                                                    </Link>
+                                <Link to="/" className="link" style={{ padding: "10px 0px" }}>
+                                    {/* Large Screen Logo */}
+                                    <img src={logo} alt="Logo" className="d-none d-sm-block" style={{ width: "120px" }} />
 
-                                                </li>
-                                            ))
-                                        } */}
-
-
-                                        {staticCategories.map((data, index) => (
-                                            <li
-                                                key={data.id}
-                                                onClick={() => setActiveIndexCat(index)}
-                                                className={`has-submenus-submenu ${activeIndexCat === index ? "active" : ""}`}
-                                            >
-                                                <Link
-                                                    onClick={() => setActiveIndexCat(null)}
-                                                    to="#"
-                                                    className="text-gray-500 text-15 py-12 px-16 flex-align gap-8 rounded-0"
-                                                >
-                                                    <span className="text-xl d-flex">
-                                                        <img style={{ width: "30px" }} src={data.category_image} alt={data.category_name} />
-                                                    </span>
-                                                    <span>{data.category_name}</span>
-                                                    <span className="icon text-md d-flex ms-auto">
-                                                        <i className="ph ph-caret-right" />
-                                                    </span>
-                                                </Link>
-                                            </li>
-                                        ))}
-
-                                    </ul>
-                                </div>
+                                    {/* Small Screen Logo */}
+                                    <img src={smallLogo} alt="Small Logo" className="d-block d-sm-none" style={{ width: "200px" }} />
+                                </Link>
                             </div>
                             {/* Category Dropdown End  */}
                             {/* Menu Start  */}
@@ -752,16 +527,6 @@ export default function TopHeader(props) {
                                 {/* Nav Menu End */}
                             </div>
                             <div className='d-flex gap-10 '>
-
-                                <button
-                                    type="button"
-                                    onClick={handleSearchToggle}
-                                    className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
-                                >
-                                    <span className="text-2xl text-gray-700 d-flex position-relative item-hover__text">
-                                        <i className="ph ph-magnifying-glass" />
-                                    </span>
-                                </button>
                                 <Link to={ROUTES.wishlist} className="flex-align gap-4 item-hover">
                                     <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
                                         <i className="ph ph-heart" />
