@@ -165,9 +165,9 @@ export default function TopHeader(props) {
 
     // category control support
     const [activeCategory, setActiveCategory] = useState(false)
-    
+
     const [activeIndexCat, setActiveIndexCat] = useState(null);
-    
+
 
     const handleDialogueAction = (data) => {
         setLogout(false)
@@ -376,9 +376,9 @@ export default function TopHeader(props) {
                 </div>
             </div>
             {/* ==================== Mobile Menu End Here ==================== */}
-            
+
             {/* ==================== Header Start Here ==================== */}
-            <header className={`header bg-white border-bottom border-gray-100 ${scroll && "fixed-header"}`}>
+            <header className={`header bg-white border-bottom border-gray-100 d-flex align-items-center justify-content-center ${scroll && "fixed-header"}`} style={{ height: '15vh' }}>
                 <div className="container container-lg">
                     <nav className="header-inner d-flex justify-content-between gap-8">
                         <div className="flex-align menu-category-wrapper " style={{ width: "100%", justifyContent: "space-between" }}>
@@ -607,6 +607,5 @@ export default function TopHeader(props) {
             </header>
             {/* ==================== Header End Here ==================== */}
         </>
-
     )
 }

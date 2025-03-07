@@ -47,7 +47,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path={ROUTES.checkout} element={<Checkout />} />
+        <Route path={ROUTES.checkout} element={<Checkout />} /> 
         <Route path={ROUTES.MyOrders} element={<Order />} />
         <Route path={ROUTES.ProductByCategory} element={<ProductByCategory />} />
         <Route path={ROUTES.wishlist} element={<Wishlist />} />
