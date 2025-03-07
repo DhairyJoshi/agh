@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import bannerBg1 from '../../assets/images/banner_bg1.jpg';
@@ -6,6 +6,15 @@ import bannerBg2 from '../../assets/images/banner_bg2.jpg';
 
 
 export default function AdvertiseBanner() {
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setActiveSlide(0);
+        }, 100);
+        return () => clearTimeout(timer);
+    }, []);
+
     function SampleNextArrow(props) {
         const { className, onClick } = props;
         return (
@@ -31,114 +40,106 @@ export default function AdvertiseBanner() {
             </button>
         );
     }
+
     const settings = {
         dots: false,
         arrows: true,
-        infinite: false,
-        speed: 1500,
+        infinite: true,
+        fade: true,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        initialSlide: 0,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
+        beforeChange: (_, next) => {
+            setActiveSlide(next);
+        },
     };
 
 
     return (
-        <div className="banner" style={{marginTop: '0px'}}>
+        <div className="banner" style={{ marginTop: '0px' }}>
             <div>
                 <div className="banner-item-x overflow-hidden position-relative arrow-center">
                     <div className="banner-slider">
                         <Slider {...settings}>
-                            <div>
-                                <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
-                                    <div className="banner-item__content" style={{
-                                        position: 'absolute',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        textAlign: 'center',
-                                        width: '100%',
-                                        height: '100%',
-                                        zIndex: 2
-                                    }}>
-                                        <h1 className="banner-item__title bounce mx-auto text-center" style={{ color: 'rgba(255,255,255,0.8)' }}>
-                                            Discover Our New Arrivals
-                                        </h1>
-                                        <Link
-                                            to="/shop"
-                                            className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
-                                        >
-                                            Shop Now{" "}
-                                            <span className="icon text-xl d-flex">
-                                                <i className="ph ph-shopping-cart-simple" />{" "}
-                                            </span>
-                                        </Link>
-                                    </div>
-                                    <div className="banner-item__thumb" style={{ height: '85vh', width: '100%' }}>
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                width: '100%',
-                                                height: '85vh',
-                                                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${bannerBg1})`,
-                                                backgroundSize: 'cover', 
-                                                backgroundPosition: 'bottom',
-                                                backgroundRepeat: 'no-repeat',
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
-                            </div>
+                            {[bannerBg1, bannerBg2].map((bg, index) => (
 
-                            <div>
-                                <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
-                                    <div className="banner-item__content" style={{
-                                        position: 'absolute',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        textAlign: 'center',
-                                        width: '100%',
-                                        height: '100%',
-                                        zIndex: 2
-                                    }}>
-                                        <h1 className="banner-item__title bounce mx-auto text-center" style={{ color: 'rgba(255,255,255,0.8)' }}>
-                                            Discover Our New Arrivals
-                                        </h1>
-                                        <Link
-                                            to="/shop"
-                                            className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
-                                        >
-                                            Shop Now{" "}
-                                            <span className="icon text-xl d-flex">
-                                                <i className="ph ph-shopping-cart-simple" />{" "}
-                                            </span>
-                                        </Link>
-                                    </div>
-                                    <div className="banner-item__thumb" style={{ height: '85vh', width: '100%' }}>
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                width: '100%',
-                                                height: '85vh',
-                                                background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${bannerBg2})`,
-                                                backgroundSize: 'cover', 
-                                                backgroundPosition: 'bottom',
-                                                backgroundRepeat: 'no-repeat',
-                                            }}
-                                        ></div>
+                                <div>
+                                    <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
+                                        <div className="banner-item__content" style={{
+                                            position: 'absolute',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                            width: '100%',
+                                            height: '100%',
+                                            zIndex: 2,
+                                            opacity: activeSlide === index ? 1 : 0,
+                                            transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
+                                            transition: 'opacity 1s ease, transform 1s ease'
+                                        }}>
+                                            <h1 className="banner-item__title bounce mx-auto text-center" style={{ color: 'rgba(255,255,255,0.8)' }}>
+                                                Discover Our New Arrivals
+                                            </h1>
+                                            <Link
+                                                to="/shop" style={{
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    backgroundColor: '#ff6f61',
+                                                    color: '#fff',
+                                                    padding: '10px 20px',
+                                                    borderRadius: '30px',
+                                                    textDecoration: 'none',
+                                                    fontSize: '1rem',
+                                                    opacity: activeSlide === index ? 1 : 0,
+                                                    transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
+                                                    transition: 'opacity 1s ease 0.3s, transform 1s ease 0.3s'
+                                                }}
+                                                className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
+                                            >
+                                                Shop Now{" "}
+                                                <span className="icon text-xl d-flex">
+                                                    <i className="ph ph-shopping-cart-simple" />{" "}
+                                                </span>
+                                            </Link>
+                                        </div>
+                                        <div className="banner-item__thumb" style={{ height: '85vh', width: '100%' }}>
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '85vh',
+                                                    background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${bg})`,
+                                                    backgroundSize: 'cover',
+                                                    backgroundPosition: 'bottom',
+                                                    backgroundRepeat: 'no-repeat',
+                                                    opacity: activeSlide === index ? 1 : 0,
+                                                    transition: 'opacity 1.5s ease'
+                                                }}
+                                            ></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            ))}
+
                         </Slider>
-
+                        <style>
+                            {`
+                                @keyframes fadeIn {
+                                    from { opacity: 0; }
+                                    to { opacity: 1; }
+                                }
+                                @keyframes fadeInUp {
+                                    from { opacity: 0; transform: translateY(30px); }
+                                    to { opacity: 1; transform: translateY(0); }
+                                }
+                            `}
+                        </style>
                     </div>
                 </div>
             </div>
