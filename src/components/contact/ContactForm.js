@@ -39,16 +39,13 @@ export default function ContactForm() {
     }
 
     return (
-        <section className="contact py-80">
-            <AlertMessage open={isOpen} message={message} state={setIsOpen} />
-            <Loading open={loader} setOpen={setLoader} />
-
+        <section className="contact pt-10 pb-20">
             <div className="container container-lg">
                 <div className="row gy-5">
                     <div className="col-lg-8">
                         <div className="contact-box border border-gray-100 rounded-16 px-24 py-40">
                             <form onSubmit={handleSubmit}>
-                                <h6 className="mb-32">Make Custom Request</h6>
+                                <h6 className="mb-32">Make Custom Inquiry</h6>
                                 <div className="row gy-4">
                                     <div className="col-sm-6 col-xs-6">
                                         <label
@@ -157,8 +154,8 @@ export default function ContactForm() {
                         <div className="contact-box border border-gray-100 rounded-16 px-24 py-40">
                             <h6 className="mb-48">Get In Touch</h6>
                             <div className="flex-align gap-16 mb-16">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-phone-call" />
+                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-600 text-2xl flex-shrink-0">
+                                    <i className="ph ph-phone-call" />
                                 </span>
                                 <Link
                                     to="/tel:+00123456789"
@@ -168,8 +165,8 @@ export default function ContactForm() {
                                 </Link>
                             </div>
                             <div className="flex-align gap-16 mb-16">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-envelope" />
+                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-600 text-2xl flex-shrink-0">
+                                    <i className="ph ph-envelope" />
                                 </span>
                                 <Link
                                     to="/mailto:support24@marketpro.com"
@@ -179,8 +176,8 @@ export default function ContactForm() {
                                 </Link>
                             </div>
                             <div className="flex-align gap-16 mb-0">
-                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-two-600 text-2xl flex-shrink-0">
-                                    <i className="ph-fill ph-map-pin" />
+                                <span className="w-40 h-40 flex-center rounded-circle border border-gray-100 text-main-600 text-2xl flex-shrink-0">
+                                    <i className="ph ph-map-pin" />
                                 </span>
                                 <span className="text-md text-gray-900 ">
 

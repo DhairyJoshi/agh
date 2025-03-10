@@ -11,7 +11,6 @@ export default function ContactUs() {
             <TopHeader />
             <Breadcrumbs main={"Contact"} parent={"Contact Us"} />
             <ContactForm/>
-            <Facilities />
             <Footer />
         </div>
     )
