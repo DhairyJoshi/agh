@@ -88,7 +88,6 @@ export default function AdvertiseBanner() {
                                                 to="/shop" style={{
                                                     display: 'inline-flex',
                                                     alignItems: 'center',
-                                                    backgroundColor: '#ff6f61',
                                                     color: '#fff',
                                                     padding: '10px 20px',
                                                     borderRadius: '30px',
