@@ -3,8 +3,6 @@ import TopHeader from './TopHeader'
 import AdvertiseBanner from './AdvertiseBanner'
 import Categories from './Categories'
 import LastMinutesDeal from './LastMinutesDeal'
-import Products from './Products'
-import DealOfDay from './DealOfDay'
 import Facilities from './Facilities'
 import NewsLetter from './NewsLetter'
 import Footer from './Footer'
@@ -43,8 +41,6 @@ export default function Home() {
       }
 
       <LastMinutesDeal />
-      <Products save={setSave} isUpdate={save} />
-      <DealOfDay save={setSave} isUpdate={save} />
       {/* <Offers save={setSave} isUpdate={save} /> */}
       <AllProducts save={setSave} isUpdate={save}/>
       <Facilities />

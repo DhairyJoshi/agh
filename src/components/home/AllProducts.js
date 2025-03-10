@@ -1,5 +1,5 @@
 import React from 'react'
-import Products from '../shop/Products'
+import Products from '../products/ProductPage'
 
 export default function AllProducts(props) {
     return (

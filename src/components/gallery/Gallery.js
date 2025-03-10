@@ -3,9 +3,9 @@ import TopHeader from '../home/TopHeader'
 import Facilities from '../home/Facilities'
 import Footer from '../home/Footer'
 import Breadcrumbs from '../common/Breadcrumbs'
-import Products from './Products'
+import Products from '../products/ProductPage'
 
-export default function Shop() {
+export default function Gallery() {
 
   const [time, setTime] = useState(new Date());
   const [save, setSave] = useState(false)
@@ -26,7 +26,7 @@ export default function Shop() {
   return (
     <div>
       <TopHeader isUpdate={save} />
-      <Breadcrumbs main={"Shop Now"} parent={"Shop"} />
+      <Breadcrumbs main={"View Gallery"} parent={"Gallery"} />
       <Products save={setSave} isUpdate={save} />
       <Facilities />
       <Footer />

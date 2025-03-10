@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import { getCountdown } from '../../helper/Countdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from '../../redux/actions/ProductAction';
 import * as ProductAction from '../../redux/actions/ProductAction';
 import { IMAGE } from '../../redux/apis/Api';
-import Login from '../login/Login';
 import { bindActionCreators } from 'redux';
 import AlertMessage from '../common/AlertMessage';
 import offerBg from '../../assets/images/details-offer-bg.png'
@@ -17,8 +15,6 @@ const Details = (props) => {
     const product = useSelector((state) => state?.products?.productDetails)
     const [mainImage, setMainImage] = useState(IMAGE + product?.data?.images?.[0]);
     const user = JSON.parse(localStorage.getItem('user'))
-    const login = JSON.parse(localStorage.getItem('login'))
-    const [openLogin, setOpenLogin] = useState(false)
     const { addtoCart, wishlist_update } = bindActionCreators(ProductAction, dispatch)
     const [save, setSave] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +33,7 @@ const Details = (props) => {
             dispatch(getProductDetails({ slug: props?.slug, user_id: user?.data?.id || null }))
 
         })()
-    }, [save, login,props?.slug])
+    }, [save])
 
     useEffect(() => {
         // Function to calculate the time remaining until the next day
@@ -93,51 +89,40 @@ const Details = (props) => {
 
     const addToCart = async (status = true) => {
         // console.log("Data")
-        if (login) {
-            const resData = await addtoCart({
-                user_id: user?.data?.id,
-                product_id: product?.data?.id,
-                quantity: status ? (Number(product?.data?.cart_quantity) + 1) : (Number(product?.data?.cart_quantity) - 1)
-            })
-            console.log("ResData: ", resData)
-            if (resData?.statuscode === 200) {
-                setSave(!save)
-                props?.save(!props?.isUpdate)
+        const resData = await addtoCart({
+            user_id: user?.data?.id,
+            product_id: product?.data?.id,
+            quantity: status ? (Number(product?.data?.cart_quantity) + 1) : (Number(product?.data?.cart_quantity) - 1)
+        })
+        console.log("ResData: ", resData)
+        if (resData?.statuscode === 200) {
+            setSave(!save)
+            props?.save(!props?.isUpdate)
 
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "success" })
-            }
-            else {
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "error" })
-            }
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "success" })
         }
         else {
-            setOpenLogin(true)
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "error" })
         }
     }
 
     const addToWishlist = async () => {
-        if (login) {
-            const resData = await wishlist_update({
-                user_id: user?.data?.id,
-                product_id: product?.data?.id
-            })
-            console.log("res", resData)
-            if (resData?.statuscode === 200) {
-                setSave(!save)
-                props?.save(!props?.isUpdate)
+        const resData = await wishlist_update({
+            user_id: user?.data?.id,
+            product_id: product?.data?.id
+        })
+        console.log("res", resData)
+        if (resData?.statuscode === 200) {
+            setSave(!save)
+            props?.save(!props?.isUpdate)
 
-            }
-            else {
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "error" })
-            }
         }
         else {
-            setOpenLogin(true)
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "error" })
         }
-
     }
 
 
@@ -151,7 +136,6 @@ const Details = (props) => {
     };
     return (
         <section className="product-details py-20">
-            <Login open={openLogin} state={setOpenLogin} />
             <AlertMessage open={isOpen} message={message} state={setIsOpen} />
 
             <div className="container container-lg">

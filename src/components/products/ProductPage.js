@@ -6,7 +6,6 @@ import { getAllProducts } from '../../redux/actions/ProductAction'
 import * as ProductAction from '../../redux/actions/ProductAction'
 import { IMAGE } from '../../redux/apis/Api'
 import { ROUTES } from '../../constant/routes'
-import Login from '../login/Login'
 import AlertMessage from '../common/AlertMessage'
 import { bindActionCreators } from 'redux'
 export default function Products(props) {
@@ -14,8 +13,6 @@ export default function Products(props) {
     const all_products = useSelector((state) => state?.products?.products)
     const user_id = JSON.parse(localStorage.getItem('user'))
     const user = JSON.parse(localStorage.getItem('user'))
-    const login = JSON.parse(localStorage.getItem('login'))
-    const [openLogin, setOpenLogin] = useState(false)
     const { addtoCart } = bindActionCreators(ProductAction, dispatch)
     const [save, setSave] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
@@ -24,32 +21,27 @@ export default function Products(props) {
         (async () => {
             dispatch(getAllProducts({ user_id: user_id?.data?.id || null }))
         })()
-    }, [save, login])
+    }, [save])
 
 
     const addToCart = async (data, status = true) => {
         // console.log("Data")
-        if (login) {
-            const resData = await addtoCart({
-                user_id: user?.data?.id,
-                product_id: data?.id,
-                quantity: status ? (Number(data?.cart_quantity) + 1) : (Number(data?.cart_quantity) - 1)
-            })
-            console.log("ResData: ", resData)
-            if (resData?.statuscode === 200) {
-                setSave(!save)
-                props?.save(!props?.isUpdate)
+        const resData = await addtoCart({
+            user_id: user?.data?.id,
+            product_id: data?.id,
+            quantity: status ? (Number(data?.cart_quantity) + 1) : (Number(data?.cart_quantity) - 1)
+        })
+        console.log("ResData: ", resData)
+        if (resData?.statuscode === 200) {
+            setSave(!save)
+            props?.save(!props?.isUpdate)
 
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "success" })
-            }
-            else {
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "error" })
-            }
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "success" })
         }
         else {
-            setOpenLogin(true)
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "error" })
         }
     }
 
@@ -57,7 +49,6 @@ export default function Products(props) {
 
     return (
         <section className="recommended pb-20">
-            <Login open={openLogin} state={setOpenLogin} />
             <AlertMessage open={isOpen} message={message} state={setIsOpen} />
             <div className="container container-lg">
 

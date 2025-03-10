@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { product_filter } from '../../redux/actions/ProductAction'
 import * as ProductAction from '../../redux/actions/ProductAction'
 import { ROUTES } from '../../constant/routes'
-import Login from '../login/Login'
 import AlertMessage from '../common/AlertMessage'
 import { IMAGE } from '../../redux/apis/Api'
 import { bindActionCreators } from 'redux'
@@ -18,8 +17,6 @@ export default function ProductByCategory() {
     const all_products = useSelector((state) => state?.products?.filtered)
     const user_id = JSON.parse(localStorage.getItem('user'))
     const user = JSON.parse(localStorage.getItem('user'))
-    const login = JSON.parse(localStorage.getItem('login'))
-    const [openLogin, setOpenLogin] = useState(false)
     const { addtoCart } = bindActionCreators(ProductAction, dispatch)
     const [save, setSave] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
@@ -30,31 +27,26 @@ export default function ProductByCategory() {
     useEffect(() => {
         if (location?.state)
             dispatch(product_filter({ category_id: location?.state?.id, user_id: user?.data?.id || null }))
-    }, [location?.state, save, login])
+    }, [location?.state, save])
     console.log(location?.state)
 
     const addToCart = async (data, status = true) => {
         // console.log("Data")
-        if (login) {
-            const resData = await addtoCart({
-                user_id: user?.data?.id,
-                product_id: data?.id,
-                quantity: status ? (Number(data?.cart_quantity) + 1) : (Number(data?.cart_quantity) - 1)
-            })
-            console.log("ResData: ", resData)
-            if (resData?.statuscode === 200) {
-                setSave(!save)
+        const resData = await addtoCart({
+            user_id: user?.data?.id,
+            product_id: data?.id,
+            quantity: status ? (Number(data?.cart_quantity) + 1) : (Number(data?.cart_quantity) - 1)
+        })
+        console.log("ResData: ", resData)
+        if (resData?.statuscode === 200) {
+            setSave(!save)
 
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "success" })
-            }
-            else {
-                setIsOpen(true)
-                setMessage({ ...message, message: resData?.message, flag: "error" })
-            }
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "success" })
         }
         else {
-            setOpenLogin(true)
+            setIsOpen(true)
+            setMessage({ ...message, message: resData?.message, flag: "error" })
         }
     }
 
@@ -64,7 +56,6 @@ export default function ProductByCategory() {
             <TopHeader isUpdate={save} />
             <Breadcrumbs main={`Filtered by '${location?.state?.category_name}'`} parent={"Products"} child={location?.state?.category_name} />
             <section className="recommended pb-20">
-                <Login open={openLogin} state={setOpenLogin} />
                 <AlertMessage open={isOpen} message={message} state={setIsOpen} />
                 <div className="container container-lg">
 

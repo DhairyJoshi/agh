@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import logo from '../../assets/images/agh_logo4.png'
-import instagram from '../../assets/images/instagram.png'
+import logo from '../../assets/images/agh_logo.png'
 import { useSelector } from 'react-redux'
 import { ROUTES } from '../../constant/routes'
 

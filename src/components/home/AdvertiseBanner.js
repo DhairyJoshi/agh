@@ -99,20 +99,20 @@ export default function AdvertiseBanner() {
                                                 }}
                                                 className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                             >
-                                                Shop Now{" "}
+                                                View Products{" "}
                                                 <span className="icon text-xl d-flex">
                                                     <i className="ph ph-shopping-cart-simple" />{" "}
                                                 </span>
                                             </Link>
                                         </div>
-                                        <div className="banner-item__thumb" style={{ height: '85vh', width: '100%' }}>
+                                        <div className="banner-item__thumb" style={{ height: '90vh', width: '100%' }}>
                                             <div
                                                 style={{
                                                     position: 'absolute',
                                                     top: 0,
                                                     left: 0,
                                                     width: '100%',
-                                                    height: '85vh',
+                                                    height: '90vh',
                                                     background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${bg})`,
                                                     backgroundSize: 'cover',
                                                     backgroundPosition: 'bottom',

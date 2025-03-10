@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import query from 'jquery';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/agh_logo2.png'
+import logo from '../../assets/images/agh_logo.png'
 import blue from '../../assets/images/blue.png'
 import purple from '../../assets/images/purple.png'
 import yellow from '../../assets/images/yellow.png'
 import red from '../../assets/images/red.png'
-import smallLogo from '../../assets/images/agh_logo3.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { add_to_cart_list, getAllCategories, user_wishlist_list } from '../../redux/actions/ProductAction';
-import Login from '../login/Login';
 import axios from 'axios';
 import Dialogue from '../common/Dialogue';
 import { ROUTES } from '../../constant/routes';
-import Profile from '../profile/Profile';
 import { bindActionCreators } from 'redux';
 import * as ProductAction from '../../redux/actions/ProductAction'
 import * as HomeAction from '../../redux/actions/HomeAction'
@@ -22,7 +19,6 @@ export default function TopHeader(props) {
     const [scroll, setScroll] = useState(false)
     const [openLogin, setOpenLogin] = useState(false)
     const [category, setCategory] = useState(null)
-    const [openProfile, setOpenProfile] = useState(false)
     const dispatch = useDispatch()
     const categories = useSelector((state) => state?.products?.categories)
     const isLoggedIn = localStorage.getItem('login')
@@ -206,9 +202,7 @@ export default function TopHeader(props) {
     return (
         <>
             <div className="overlay" />
-            <Login open={openLogin} state={setOpenLogin} />
             <Dialogue content={"Do you confirm you want to log out of your account?"} open={logout} fn={handleDialogueAction} />
-            <Profile open={openProfile} setOpen={setOpenProfile} />
             <div className={`side-overlay ${(menuActive || activeCategory) && "show"}`} />
             {/* ==================== Mobile Menu Start Here ==================== */}
             <div className={`mobile-menu scroll-sm d-lg-none d-block ${menuActive && "active"}`}>
@@ -241,135 +235,52 @@ export default function TopHeader(props) {
                             </li>
                             <li className="nav-menu__item">
                                 <Link
-                                    to="/shop"
+                                    to="/gallery"
+                                    className="nav-menu__link"
+                                    onClick={() => setActiveIndex(null)}
+                                >
+                                    <div className='d-flex'>
+                                        <i className="ph ph-images mr-1" style={{ fontSize: "16px" }} />
+                                        Gallery
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="nav-menu__item">
+                                <Link
+                                    to="/products"
                                     className="nav-menu__link"
                                     onClick={() => setActiveIndex(null)}
                                 >
                                     <div className='d-flex'>
                                         <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "16px" }} />
-                                        Shop
+                                        Products
                                     </div>
                                 </Link>
                             </li>
                             <li className="nav-menu__item">
                                 <Link
-                                    to={ROUTES.offers}
+                                    to="/contact"
                                     className="nav-menu__link"
                                     onClick={() => setActiveIndex(null)}
                                 >
-                                    <div className='d-flex'>
-                                        <i className="ph ph-seal-percent mr-1" style={{ fontSize: "16px" }} />
-                                        Offers
-                                    </div>
-                                </Link>
-                            </li>
-                            <li className="nav-menu__item">
-                                <Link
-                                    to={isLoggedIn ? "/contact" : "#"}
-                                    className="nav-menu__link"
-                                    onClick={(e) => {
-                                        if (!isLoggedIn) {
-                                            e.preventDefault(); // Prevent navigation
-                                            setOpenLogin(true); // Trigger login state change or show login modal
-                                        } else {
-                                            setActiveIndex(null); // Proceed as usual if logged in
-                                        }
-                                    }}                                >
                                     <div className='d-flex'>
                                         <i className="ph ph-headset mr-1" style={{ fontSize: "16px" }} />
                                         Contact
                                     </div>
                                 </Link>
                             </li>
-                            {
-                                isLoggedIn ?
-                                    // <li className="nav-menu__item">
-                                    //     <Link
-                                    //         to="#"
-                                    //         className="nav-menu__link"
-                                    //         onClick={() => {
-                                    //             setActiveIndex(null);
-                                    //             handleAccount();
-                                    //         }}
-                                    //     >
-                                    //         <div className='d-flex'>
-                                    //             <i className="ph ph-user mr-1" style={{ fontSize: "16px" }} />
-                                    //             My Account
-                                    //         </div>
-                                    //     </Link>
-                                    // </li>
-                                    <li onClick={() => handleMenuClick(3)}
-                                        className={`on-hover-item nav-menu__item has-submenu ${activeIndex === 3 ? "d-block" : ""
-                                            }`}
-                                    >
-                                        <Link
-                                            to="#"
-                                            className="nav-menu__link"
-
-                                        >
-                                            My Account
-                                        </Link>
-                                        <ul
-                                            className={`on-hover-dropdown common-dropdown nav-submenu scroll-sm ${activeIndex === 3 ? "open" : ""
-                                                }`}
-                                        >
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <Link
-                                                    to="#"
-                                                    className="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    onClick={() => {
-                                                        setActiveIndex(null);
-                                                        setOpenProfile(true)
-                                                    }}
-                                                >
-                                                    {" "}
-                                                    Profile
-                                                </Link>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <Link
-                                                    to={ROUTES.MyOrders}
-                                                    className="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    onClick={() => setActiveIndex(null)}
-                                                >
-                                                    {" "}
-                                                    My Orders
-                                                </Link>
-                                            </li>
-                                            <li className="common-dropdown__item nav-submenu__item">
-                                                <Link
-                                                    to="#"
-                                                    className="common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                    onClick={() => {
-                                                        setActiveIndex(null);
-                                                        setLogout(true);
-                                                    }}
-                                                >
-                                                    {" "}
-                                                    Logout
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    :
-                                    <li className="nav-menu__item">
-                                        <Link
-                                            to="#"
-                                            className="nav-menu__link"
-                                            onClick={() => {
-                                                setActiveIndex(null);
-                                                setOpenLogin(true);
-                                            }}
-                                        >
-                                            <div className='d-flex'>
-                                                <i className="ph ph-sign-in mr-1" style={{ fontSize: "16px" }} />
-                                                Sign in
-                                            </div>
-                                        </Link>
-                                    </li>
-                            }
-
-
+                            <li className="nav-menu__item">
+                                <Link
+                                    to="/about"
+                                    className="nav-menu__link"
+                                    onClick={() => setActiveIndex(null)}
+                                >
+                                    <div className='d-flex'>
+                                        <i className="ph ph-info mr-1" style={{ fontSize: "16px" }} />
+                                        About Us
+                                    </div>
+                                </Link>
+                            </li>
                         </ul>
                         {/* Nav Menu End */}
                     </div>
@@ -378,7 +289,7 @@ export default function TopHeader(props) {
             {/* ==================== Mobile Menu End Here ==================== */}
 
             {/* ==================== Header Start Here ==================== */}
-            <header className={`header bg-white border-bottom border-gray-100 d-flex align-items-center justify-content-center ${scroll && "fixed-header"}`} style={{ height: '15vh' }}>
+            <header className={`header bg-white border-bottom border-gray-100 d-flex align-items-center justify-content-center ${scroll && "fixed-header"}`} style={{ height: '10vh' }}>
                 <div className="container container-lg">
                     <nav className="header-inner d-flex justify-content-between gap-8">
                         <div className="flex-align menu-category-wrapper " style={{ width: "100%", justifyContent: "space-between" }}>
@@ -386,10 +297,7 @@ export default function TopHeader(props) {
                             <div className="category on-hover-item">
                                 <Link to="/" className="link" style={{ padding: "10px 0px" }}>
                                     {/* Large Screen Logo */}
-                                    <img src={logo} alt="Logo" className="d-none d-sm-block" style={{ width: "120px" }} />
-
-                                    {/* Small Screen Logo */}
-                                    <img src={smallLogo} alt="Small Logo" className="d-block d-sm-none" style={{ width: "200px" }} />
+                                    <img src={logo} alt="Logo" style={{ width: "60px" }} />
                                 </Link>
                             </div>
                             {/* Category Dropdown End  */}
@@ -409,189 +317,51 @@ export default function TopHeader(props) {
                                         </NavLink>
                                     </li>
                                     <li className="nav-menu__item">
-                                        <NavLink to="/shop" className={(navData) =>
+                                        <NavLink to="/gallery" className={(navData) =>
+                                            navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
+                                        }>
+                                            <div className='d-flex' style={{ alignItems: "center" }}>
+                                                <i className="ph ph-images mr-1" style={{ fontSize: "20px" }} />
+                                                Gallery
+                                            </div>
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-menu__item">
+                                        <NavLink to="/products" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
                                             <div className='d-flex' style={{ alignItems: "center" }}>
                                                 <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "20px" }} />
-                                                Shop
+                                                Products
                                             </div>
                                         </NavLink>
                                     </li>
                                     <li className="nav-menu__item">
-                                        <NavLink to={ROUTES.offers} className={(navData) =>
+                                        <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
-                                                <i className="ph ph-seal-percent mr-1" style={{ fontSize: "20px" }} />
-                                                Offers
-                                            </div>
-                                        </NavLink>
-                                    </li>
-                                    <li className="nav-menu__item">
-                                        <NavLink
-                                            to={isLoggedIn ? "/contact" : "#"}
-                                            className={(navData) =>
-                                                window.location.pathname === "/contact" ? "nav-menu__link activePage" : "nav-menu__link"
-                                            }
-                                            onClick={(e) => {
-                                                if (!isLoggedIn) {
-                                                    e.preventDefault(); // Prevent navigation
-                                                    setOpenLogin(true); // Trigger login state change or show login modal
-                                                }
-                                            }}
-                                        >
-
-
                                             <div className='d-flex' style={{ alignItems: "center" }}>
                                                 <i className="ph ph-headset mr-1" style={{ fontSize: "20px" }} />
                                                 Contact
                                             </div>
                                         </NavLink>
                                     </li>
-
-                                    {
-                                        isLoggedIn ?
-                                            // <li className="nav-menu__item">
-                                            //     <NavLink to="#"
-                                            //         className={"nav-menu__link"}
-                                            //         onClick={() => handleAccount()}
-                                            //     >
-                                            //         <div className='d-flex' style={{ alignItems: "center" }}>
-                                            //             <i className="ph ph-user mr-1" style={{ fontSize: "20px" }} />
-                                            //             My Account
-                                            //         </div>
-                                            //     </NavLink>
-                                            // </li>
-                                            <li className="on-hover-item nav-menu__item has-submenu">
-                                                <Link to="#" className="nav-menu__link">
-                                                    My Account
-                                                </Link>
-                                                <ul className="on-hover-dropdown common-dropdown nav-submenu scroll-sm">
-                                                    <li className="common-dropdown__item nav-submenu__item">
-                                                        <NavLink
-                                                            to="#"
-                                                            className={(navData) =>
-                                                                navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                            }
-                                                            onClick={() => setOpenProfile(true)}
-                                                        >
-                                                            {" "}
-                                                            Profile
-                                                        </NavLink>
-                                                    </li>
-                                                    <li className="common-dropdown__item nav-submenu__item">
-                                                        <NavLink
-                                                            to={ROUTES.MyOrders}
-                                                            className={(navData) =>
-                                                                navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                            }
-                                                        >
-                                                            {" "}
-                                                            My Orders
-                                                        </NavLink>
-                                                    </li>
-                                                    <li className="common-dropdown__item nav-submenu__item">
-                                                        <NavLink
-                                                            to="#"
-                                                            onClick={() => setLogout(true)}
-                                                            className={(navData) =>
-                                                                navData.isActive ? "common-dropdown__link nav-submenu__link hover-bg-neutral-100 activePage" : "common-dropdown__link nav-submenu__link hover-bg-neutral-100"
-                                                            }
-                                                        >
-                                                            {" "}
-                                                            Logout
-                                                        </NavLink>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            :
-                                            <li className="nav-menu__item">
-                                                <NavLink to="#"
-                                                    className={"nav-menu__link"}
-                                                    onClick={() => setOpenLogin(true)}
-                                                >
-                                                    <div className='d-flex' style={{ alignItems: "center" }}>
-                                                        <i className="ph ph-sign-in mr-1" style={{ fontSize: "20px" }} />
-                                                        Sign in
-                                                    </div>
-                                                </NavLink>
-                                            </li>
-                                    }
-
-
-
-
+                                    <li className="nav-menu__item">
+                                        <NavLink to="/about" className={(navData) =>
+                                            navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
+                                        }>
+                                            <div className='d-flex' style={{ alignItems: "center" }}>
+                                                About Us
+                                            </div>
+                                        </NavLink>
+                                    </li>
                                 </ul>
-
                                 {/* Nav Menu End */}
                             </div>
-                            <div className='d-flex gap-10 '>
-                                <Link to={ROUTES.wishlist} className="flex-align gap-4 item-hover">
-                                    <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
-                                        <i className="ph ph-heart" />
-                                        <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
-                                            {wishlist?.data?.length || 0}
-                                        </span>
-                                    </span>
-                                    <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Wishlist
-                                    </span>
-                                </Link>
-                                <Link to="/cart" className="flex-align gap-4 item-hover">
-                                    <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
-                                        <i className="ph ph-shopping-cart-simple" />
-                                        {
-                                            <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
-                                                {cart?.data?.length}
-                                            </span>
-
-                                        }
-
-                                    </span>
-                                    <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                        Cart
-                                    </span>
-                                </Link>
-                            </div>
-
                             {/* Menu End  */}
                         </div>
                         {/* Header Right start */}
                         <div className="header-right flex-align">
-                            {/* <div
-                                to="/tel:01234567890"
-                                className="bg-main-600 text-white p-12 h-100 hover-bg-main-800 flex-align gap-8 text-lg d-lg-flex d-none"
-                            >
-                                <div className="d-flex text-32">
-                                    <i className="ph ph-phone-call" />
-                                </div>
-                                +91 9104592065
-                            </div> */}
-                            <div className="me-16 d-lg-none d-block">
-                                <div className="flex-align flex-wrap gap-12  nav-class-menu">
-                                    <button onClick={handleSearchToggle}
-                                        type="button"
-                                        className="search-icon flex-align d-lg-none d-flex gap-4 item-hover"
-                                    >
-                                        <span className="text-2xl text-gray-700 d-flex position-relative item-hover__text">
-                                            <i className="ph ph-magnifying-glass" />
-                                        </span>
-                                    </button>
-
-                                    <Link to="/cart" className="flex-align gap-4 item-hover">
-                                        <span className="text-2xl text-gray-700 d-flex position-relative me-6 mt-6 item-hover__text">
-                                            <i className="ph ph-shopping-cart-simple" />
-                                            <span className="w-16 h-16 flex-center rounded-circle bg-main-600 text-white text-xs position-absolute top-n6 end-n4">
-                                                2
-                                            </span>
-                                        </span>
-                                        <span className="text-md text-gray-500 item-hover__text d-none d-lg-flex">
-                                            Cart
-                                        </span>
-                                    </Link>
-                                </div>
-                            </div>
                             <button
                                 onClick={handleMenuToggle}
                                 type="button"
