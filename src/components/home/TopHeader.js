@@ -6,7 +6,7 @@ import blue from '../../assets/images/blue.png'
 import purple from '../../assets/images/purple.png'
 import yellow from '../../assets/images/yellow.png'
 import red from '../../assets/images/red.png'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { add_to_cart_list, getAllCategories, user_wishlist_list } from '../../redux/actions/ProductAction';
 import axios from 'axios';
 import Dialogue from '../common/Dialogue';
@@ -17,52 +17,11 @@ import * as HomeAction from '../../redux/actions/HomeAction'
 
 export default function TopHeader(props) {
     const [scroll, setScroll] = useState(false)
-    const [openLogin, setOpenLogin] = useState(false)
-    const [category, setCategory] = useState(null)
     const dispatch = useDispatch()
-    const categories = useSelector((state) => state?.products?.categories)
-    const isLoggedIn = localStorage.getItem('login')
-    const user = JSON.parse(localStorage.getItem('user'))
-    const [logout, setLogout] = useState(false)
-    const cart = useSelector((state) => state.products?.cartData)
-    const wishlist = useSelector((state) => state.products?.all_wishlist)
     const navigation = useNavigate()
-    const { search_product } = bindActionCreators(ProductAction, dispatch)
-    const [list, setList] = useState([])
-    const [search, setSearch] = useState(false)
     const inputRef = useRef(null);
     const { get_notifications } = bindActionCreators(HomeAction, dispatch)
     const isSendNotifications = sessionStorage.getItem('isSendNotifications')
-
-    function requestNotificationPermission() {
-        if ("Notification" in window) {
-            Notification.requestPermission().then((permission) => {
-                if (permission === "granted") {
-                    console.log("Notification permission granted.");
-                }
-            });
-        } else {
-            console.log("This browser does not support desktop notification");
-        }
-    }
-
-
-    function showNotification(title, options) {
-        if (Notification.permission === "granted") {
-            new Notification(title, options);
-        } else {
-            console.log("Notification permission is not granted.");
-        }
-    }
-
-    const handleShowNotification = (data) => {
-        const options = {
-            body: data?.notification?.description
-            ,
-            icon: "https://i.ibb.co/HPntdfb/favicon.png", // Optional: icon path
-        };
-        showNotification(data?.notification?.notification_title, options);
-    };
 
     useEffect(() => {
         window.onscroll = () => {
@@ -85,32 +44,6 @@ export default function TopHeader(props) {
     }, []);
 
     useEffect(() => {
-        (async () => {
-            dispatch(getAllCategories())
-            const ip = await axios.get("https://api.ipify.org/?format=json");
-            localStorage.setItem('ip_address', ip?.data?.ip)
-            dispatch(add_to_cart_list({ user_id: user?.data?.id || null }))
-            dispatch(user_wishlist_list({ user_id: user?.data?.id || null }))
-            requestNotificationPermission();
-            if (!isSendNotifications) {
-                const resData = await get_notifications()
-                console.log("resData: ", resData)
-                sessionStorage.setItem('isSendNotifications', true)
-                if (resData?.statuscode === 200) {
-                    resData?.data?.map((data, index) => {
-                        setTimeout(() => {
-                            handleShowNotification(data)
-                        }, index === 0 ? 3000 : 7000)
-                    })
-                }
-            }
-
-
-
-        })()
-    }, [props?.isUpdate, isLoggedIn])
-
-    useEffect(() => {
         const handleBeforeUnload = (event) => {
             event.preventDefault();
             event.returnValue = sessionStorage.removeItem('isSendNotifications'); // Required for most browsers to display a confirmation dialog
@@ -125,23 +58,6 @@ export default function TopHeader(props) {
         };
     }, []);
 
-
-
-    // Set the default language
-    const [selectedLanguage, setSelectedLanguage] = useState("Eng");
-
-
-    // Set the default currency
-    const [selectedCurrency, setSelectedCurrency] = useState("USD");
-
-    // static categories
-    const staticCategories = [
-        { id: 1, category_name: "Organic Fertilizer", category_image: red },
-        { id: 2, category_name: "Chemical Fertilizer", category_image: yellow },
-        { id: 3, category_name: "Compost", category_image: blue },
-        { id: 4, category_name: "Manure", category_image: purple }
-    ];
-
     // Mobile menu support
     const [menuActive, setMenuActive] = useState(false)
     const [activeIndex, setActiveIndex] = useState(null);
@@ -152,58 +68,10 @@ export default function TopHeader(props) {
         setMenuActive(!menuActive);
     };
 
-
-    // Search control support
-    const [activeSearch, setActiveSearch] = useState(false)
-    const handleSearchToggle = () => {
-        setActiveSearch(!activeSearch);
-    };
-
-    // category control support
-    const [activeCategory, setActiveCategory] = useState(false)
-
-    const [activeIndexCat, setActiveIndexCat] = useState(null);
-
-
-    const handleDialogueAction = (data) => {
-        setLogout(false)
-        if (data) {
-            localStorage.removeItem('login')
-            localStorage.removeItem('user')
-            navigation(ROUTES.home, { replace: true })
-        }
-    }
-
-
-    const handleSearch = async (e) => {
-        console.log("e", e.target.value, category)
-        if (e.target.value) {
-            setSearch(true)
-        }
-        else {
-            setSearch(false)
-        }
-        const resData = await search_product({ product_name: e.target.value, category_id: null })
-        setList(resData?.data)
-    }
-
-    const handleNavigation = (slug, flag = false) => {
-        navigation(ROUTES.productDetails + "/" + slug);
-        if (inputRef.current) inputRef.current.value = ''; // Clear input
-        setSearch(false); // Hide the suggestions
-        if (flag) {
-            setActiveSearch(!activeSearch);
-
-        }
-
-    };
-
-
     return (
         <>
             <div className="overlay" />
-            <Dialogue content={"Do you confirm you want to log out of your account?"} open={logout} fn={handleDialogueAction} />
-            <div className={`side-overlay ${(menuActive || activeCategory) && "show"}`} />
+            <div className={`side-overlay ${(menuActive) && "show"}`} />
             {/* ==================== Mobile Menu Start Here ==================== */}
             <div className={`mobile-menu scroll-sm d-lg-none d-block ${menuActive && "active"}`}>
                 <button onClick={() => { handleMenuToggle(); setActiveIndex(null) }} type="button" className="close-button">
