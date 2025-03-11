@@ -6,12 +6,11 @@ const ProductsCard = ({ product }) => {
         <div className="product-card p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2" style={{ height: '28rem' }}>
             <Link
                 to="/product-details"
-                className="product-card__thumb flex-center rounded-8 bg-gray-50 position-relative"
+                className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
-                    src="assets/images/thumbs/product-two-img1.png"
-                    alt=""
-                    className="w-auto max-w-unset"
+                    src={ product.image }
+                    style={{ width:'auto', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 />
                 { product.bestsale &&
                     (<span className="product-card__badge bg-primary-600 px-8 py-4 text-sm text-white position-absolute inset-inline-start-0 inset-block-start-0">
