@@ -6,7 +6,6 @@ import LastMinutesDeal from './LastMinutesDeal'
 import Facilities from './Facilities'
 import NewsLetter from './NewsLetter'
 import Footer from './Footer'
-import AllProducts from './AllProducts'
 
 export default function Home() {
 
@@ -41,8 +40,6 @@ export default function Home() {
       }
 
       <LastMinutesDeal />
-      {/* <Offers save={setSave} isUpdate={save} /> */}
-      <AllProducts save={setSave} isUpdate={save}/>
       <Facilities />
       <NewsLetter />
       <Footer />

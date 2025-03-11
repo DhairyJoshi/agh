@@ -3,7 +3,6 @@ import Home from './components/home/Home';
 import RouteScrollToTop from "./helper/RouteScrollToTop";
 import PhosphorIconInit from "./helper/PhosphorIconInit";
 import { Route, Routes } from 'react-router-dom';
-import ProductDetails from './components/product/ProductDetails';
 import Products from './components/products/Products';
 import ContactUs from './components/contact/ContactUs';
 import { ROUTES } from './constant/routes';
@@ -18,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { count_visitors } from './redux/actions/HomeAction';
 import Gallery from './components/gallery/Gallery';
+import ProductDetailsPage from './components/product-details/ProductDetailsPage';
 
 
 function App() {
@@ -36,10 +36,10 @@ function App() {
       <PhosphorIconInit />
       <Routes>
         <Route path={ROUTES.home} element={<Home />} />
-        <Route path={`${ROUTES.productDetails}/:slug`} element={<ProductDetails />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/product-details" element={<ProductDetailsPage />} />
         <Route path={ROUTES.ProductByCategory} element={<ProductByCategory />} />
         <Route path={ROUTES.terms_conditioon} element={<Terms />} />
         <Route path={ROUTES.privacyPolicy} element={<PrivacyPolicy />} />
