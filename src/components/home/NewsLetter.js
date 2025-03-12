@@ -3,7 +3,7 @@ import imageBg from '../../assets/images/agrochemicals.png'
 
 export default function NewsLetter() {
     return (
-        <div className="newsletter">
+        <div className="newsletter py-40">
             <div className="container container-lg">
                 <div className="newsletter-box position-relative rounded-16 flex-align gap-16 flex-wrap z-1">
                     <img
