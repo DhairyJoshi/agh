@@ -1,41 +1,31 @@
 import React, { useState } from 'react'
-import { Form, Link } from 'react-router-dom'
-import AlertMessage from '../common/AlertMessage';
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as AuthAction from '../../redux/actions/AuthAction'
-import Loading from '../common/Loading';
 
 export default function ContactForm() {
 
     const [form, setForm] = useState(null)
     const user = JSON.parse(localStorage.getItem('user') || null)
-    const [isOpen, setIsOpen] = useState(false);
-    const [message, setMessage] = useState(null);
     const dispatch = useDispatch()
-    const { submitEnquiry } = bindActionCreators(AuthAction, dispatch)
-    const [loader, setLoader] = useState(false)
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setLoader(true)
-        form.user_id = user?.data?.id
-        const resData = await submitEnquiry(form)
-        console.log(resData)
-        if (resData?.statuscode === 200) {
-            setIsOpen(true)
-            setMessage({ ...message, message: resData?.message, flag: "success" })
-            setLoader(false)
-            setForm(null)
-        }
-        else {
-            setIsOpen(true)
-            setMessage({ ...message, message: resData?.message, flag: "error" })
-            setLoader(false)
+        // setLoader(true)
+        // form.user_id = user?.data?.id
+        // const resData = await submitEnquiry(form)
+        // console.log(resData)
+        // if (resData?.statuscode === 200) {
+        //     setIsOpen(true)
+        //     setMessage({ ...message, message: resData?.message, flag: "success" })
+        //     setLoader(false)
+        //     setForm(null)
+        // }
+        // else {
+        //     setIsOpen(true)
+        //     setMessage({ ...message, message: resData?.message, flag: "error" })
+        //     setLoader(false)
 
-        }
-
+        // }
     }
 
     return (

@@ -2,26 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import query from 'jquery';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/agh_logo.png'
-import blue from '../../assets/images/blue.png'
-import purple from '../../assets/images/purple.png'
-import yellow from '../../assets/images/yellow.png'
-import red from '../../assets/images/red.png'
 import { useDispatch } from 'react-redux';
-import { add_to_cart_list, getAllCategories, user_wishlist_list } from '../../redux/actions/ProductAction';
-import axios from 'axios';
-import Dialogue from '../common/Dialogue';
-import { ROUTES } from '../../constant/routes';
 import { bindActionCreators } from 'redux';
-import * as ProductAction from '../../redux/actions/ProductAction'
-import * as HomeAction from '../../redux/actions/HomeAction'
 
 export default function TopHeader(props) {
     const [scroll, setScroll] = useState(false)
-    const dispatch = useDispatch()
-    const navigation = useNavigate()
-    const inputRef = useRef(null);
-    const { get_notifications } = bindActionCreators(HomeAction, dispatch)
-    const isSendNotifications = sessionStorage.getItem('isSendNotifications')
 
     useEffect(() => {
         window.onscroll = () => {

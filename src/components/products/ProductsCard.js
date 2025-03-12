@@ -9,7 +9,7 @@ const ProductsCard = ({ product }) => {
                 className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
-                    src={ product.image }
+                    src={ product.images }
                     style={{ width:'auto', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 />
                 { product.bestsale &&
@@ -35,7 +35,7 @@ const ProductsCard = ({ product }) => {
                         className="link text-line-2"
                         tabIndex={0}
                     >
-                        { product.name }
+                        { product.title }
                     </Link>
                 </h6>
                 <div className="d-flex justify-content-between align-items-center mb-20 mt-16 gap-6">
