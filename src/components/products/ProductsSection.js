@@ -11,13 +11,10 @@ const ProductsSection = () => {
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
 
     useEffect(() => {
-        console.log("Calling GET_ALL_PRODUCTS...");
         GET_ALL_PRODUCTS();
     }, []);
 
     const products = useSelector(state => state.productState.products);
-
-    console.log(products, "inside ProductsSection");
 
     let [grid, setGrid] = useState(false);
     let [active, setActive] = useState(false);
@@ -151,7 +148,7 @@ const ProductsSection = () => {
 
                         </div>
                         {/* Pagination Start */}
-                        <ul className="pagination flex-center flex-wrap gap-16">
+                        {/* <ul className="pagination flex-center flex-wrap gap-16">
                             <li className="page-item">
                                 <Link
                                     className="page-link h-64 w-64 flex-center text-xxl rounded-8 fw-medium text-neutral-600 border border-gray-100"
@@ -224,7 +221,7 @@ const ProductsSection = () => {
                                     <i className="ph-bold ph-arrow-right" />
                                 </Link>
                             </li>
-                        </ul>
+                        </ul> */}
                         {/* Pagination End */}
                     </div>
                     {/* Content End */}

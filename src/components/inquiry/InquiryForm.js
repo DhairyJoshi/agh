@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../redux';
 
-export default function ContactForm() {
+export default function InquiryForm() {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    const products = useSelector((state) => state.productState.products);
+
+    useEffect(() => {
+        // Fetch products if they are empty (on page reload)
+        if (!products || products.length === 0) {
+            dispatch(GET_ALL_PRODUCTS());
+        }
+    }, [dispatch, products]);
+
+    const product = products?.find((p) => p.id === parseInt(id));
+    console.log(product, "iq")
 
     const [form, setForm] = useState(null)
-    const user = JSON.parse(localStorage.getItem('user') || null)
-    const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -35,8 +49,64 @@ export default function ContactForm() {
                     <div className="col-lg-8">
                         <div className="contact-box border border-gray-100 rounded-16 px-24 py-40">
                             <form onSubmit={handleSubmit}>
-                                <h6 className="mb-32">Make Custom Inquiry</h6>
+                                <h6 className="mb-32">Make Product Inquiry</h6>
                                 <div className="row gy-4">
+                                    <div className="col-sm-6 col-xs-6">
+                                        <label
+                                            htmlFor="p_id"
+                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
+                                        >
+                                            Product ID
+                                            <span className="text-danger text-xl line-height-1">*</span>{" "}
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className="common-input px-16"
+                                            id="p_id"
+                                            placeholder="Product ID*"
+                                            value={product?.id || null}
+                                            disabled={product?.title !== null}
+                                            style={{
+                                                borderRadius: '5px',
+                                                fontWeight: '200',
+                                                outline: 'none',
+                                                width: '100%',
+                                                padding: '17px 24px',
+                                                backgroundColor: 'transparent !important',
+                                                border: '1px solid var(--gray-100)',
+                                                color: 'hsl(var(--black))',
+                                                lineHeight: '1'
+                                            }}  
+                                        />
+                                    </div>
+                                    <div className="col-sm-6 col-xs-6">
+                                        <label
+                                            htmlFor="p_title"
+                                            className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
+                                        >
+                                            Product Title
+                                            <span className="text-danger text-xl line-height-1">*</span>{" "}
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className="common-input px-16"
+                                            id="p_title"
+                                            placeholder="Product Title*"
+                                            value={product?.title || null}
+                                            disabled={product?.title !== null}
+                                            style={{
+                                                borderRadius: '5px',
+                                                fontWeight: '200',
+                                                outline: 'none',
+                                                width: '100%',
+                                                padding: '17px 24px',
+                                                backgroundColor: 'transparent !important',
+                                                border: '1px solid var(--gray-100)',
+                                                color: 'hsl(var(--black))',
+                                                lineHeight: '1'
+                                            }}  
+                                        />
+                                    </div>
                                     <div className="col-sm-6 col-xs-6">
                                         <label
                                             htmlFor="name"
@@ -117,6 +187,7 @@ export default function ContactForm() {
                                             placeholder="Type your message"
                                             defaultValue={""}
                                             onChange={(e) => setForm({ ...form, message: e.target.value })}
+
                                             required
                                         />
                                     </div>

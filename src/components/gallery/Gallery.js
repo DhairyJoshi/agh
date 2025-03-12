@@ -46,8 +46,7 @@ export default function Gallery() {
                     <div key={index} style={{ margin: '0.5rem 0.75rem' }}>
                         <a href={img}>
                             <img 
-                                className="rounded"
-                                style={{ width:'400px', height: '280px', objectFit: 'cover', objectPosition: 'center' }}
+                                style={{ width:'400px', height: '280px', objectFit: 'cover', objectPosition: 'center', borderRadius: '0.75rem' }}
                                 src={img} 
                                 alt={`Gallery ${index + 1}`} 
                             />

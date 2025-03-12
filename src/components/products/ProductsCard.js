@@ -5,7 +5,7 @@ const ProductsCard = ({ product }) => {
     return (
         <div className="product-card p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2" style={{ height: '28rem' }}>
             <Link
-                to="/product-details"
+                to={`/product-details/${product.id}`}
                 className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
@@ -31,7 +31,7 @@ const ProductsCard = ({ product }) => {
             <div className="product-card__content w-100 mt-16">
                 <h6 className="title text-lg fw-semibold mt-12 mb-8">
                     <Link
-                        to="/product-details"
+                        to={`/product-details/${product.id}`}
                         className="link text-line-2"
                         tabIndex={0}
                     >
@@ -76,7 +76,7 @@ const ProductsCard = ({ product }) => {
                     </span>
                 </div> */}
                 <Link
-                    to="/cart"
+                    to="#"
                     className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-24 rounded-8 flex-center gap-8 fw-medium"
                     tabIndex={0}
                 >

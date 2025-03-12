@@ -1,8 +1,25 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../redux/index'
 
-const ProductDetailsTwo = () => {
+const ProductDetails = () => {
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    const products = useSelector((state) => state.productState.products);
+
+    useEffect(() => {
+        // Fetch products if they are empty (on page reload)
+        if (!products || products.length === 0) {
+            dispatch(GET_ALL_PRODUCTS());
+        }
+    }, [dispatch, products]);
+
+    const product = products?.find((p) => p.id === parseInt(id));
+
     const productImages = [
         "assets/images/thumbs/product-details-two-thumb1.png",
         "assets/images/thumbs/product-details-two-thumb2.png",
@@ -10,7 +27,6 @@ const ProductDetailsTwo = () => {
         "assets/images/thumbs/product-details-two-thumb1.png",
         "assets/images/thumbs/product-details-two-thumb2.png",
     ];
-
 
     // increment & decrement
     const [quantity, setQuantity] = useState(1);
@@ -39,7 +55,7 @@ const ProductDetailsTwo = () => {
                                     <div className="product-details__thumb-slider border border-gray-100 rounded-16">
                                         <div className="">
                                             <div className="product-details__thumb flex-center h-100">
-                                                <img src={mainImage} alt="Main Product" />
+                                                <img src={product.images} alt="Main Product" />
                                             </div>
                                         </div>
                                     </div>
@@ -59,8 +75,7 @@ const ProductDetailsTwo = () => {
                             <div className="col-xl-6">
                                 <div className="product-details__content">
                                     <h5 className="mb-12">
-                                        HP Chromebook With Intel Celeron, 4GB Memory &amp; 64GB eMMC -
-                                        Modern Gray
+                                        {product.title}
                                     </h5>
                                     <div className="flex-align flex-wrap gap-12">
                                         <div className="flex-align gap-12 flex-wrap">
@@ -82,48 +97,36 @@ const ProductDetailsTwo = () => {
                                                 </span>
                                             </div>
                                             <span className="text-sm fw-medium text-neutral-600">
-                                                4.7 Star Rating
+                                                {product.rating} Star Rating
                                             </span>
                                         </div>
                                     </div>
                                     <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <p className="text-gray-700">
-                                        Geared up and ready to roll: Get the responsive performance
-                                        you're looking for with an Intel processor and 64 GB eMMC
-                                        storage. Stay productive with compatible apps like Microsoft
-                                        Office, Google Workspace, and more. The Chrome OS gives you a
-                                        fast, simple, and secure online experience with built-in virus
-                                        protection.
+                                        {product.description}
                                     </p>
                                     <div className="my-32 flex-align gap-16 flex-wrap">
                                         <div className="flex-align gap-8">
-                                            <h6 className="mb-0">INR 1500</h6>
+                                            <h6 className="mb-0">INR {product.price}</h6>
                                         </div>
                                     </div>
                                     <div className="my-32 flex-align flex-wrap gap-12">
-                                        <div
-                                            className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
-                                        >
-                                            Fertilizers
-                                        </div>
-                                        <div
-                                            className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
-                                        >
-                                            Organic
-                                        </div>
-                                        <div
-                                            className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
-                                        >
-                                            Potatoes
-                                        </div>
+                                        {product.tags.map((tag, index) => (
+                                            <div
+                                                key={index}
+                                                className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
+                                            >
+                                                {tag}
+                                            </div>
+                                        ))}
                                     </div>
-                                   
+
                                     <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <Link
-                                        to="/https://www.whatsapp.com"
+                                        to={`/inquiry/${product.id}`}
                                         className="btn btn-black flex-center gap-8 rounded-8 py-16"
                                     >
-                                        <i className="ph ph-whatsapp-logo text-lg" />
+                                        <i className="ph ph-info fs-3" />
                                         Request More Information
                                     </Link>
                                 </div>
@@ -143,24 +146,9 @@ const ProductDetailsTwo = () => {
                                     tabIndex={0}
                                 >
                                     <div className="mb-40">
-                                        <h6 className="mb-24">Product Description</h6>
+                                        <h6 className="mb-12">Product Description</h6>
                                         <p>
-                                            Wherever celebrations and good times happen, the LAY'S brand
-                                            will be there just as it has been for more than 75 years. With
-                                            flavors almost as rich as our history, we have a chip or crisp
-                                            flavor guaranteed to bring a smile on your face.{" "}
-                                        </p>
-                                        <p>
-                                            Morbi ut sapien vitae odio accumsan gravida. Morbi vitae erat
-                                            auctor, eleifend nunc a, lobortis neque. Praesent aliquam
-                                            dignissim viverra. Maecenas lacus odio, feugiat eu nunc sit
-                                            amet, maximus sagittis dolor. Vivamus nisi sapien, elementum
-                                            sit amet eros sit amet, ultricies cursus ipsum. Sed consequat
-                                            luctus ligula. Curabitur laoreet rhoncus blandit. Aenean vel
-                                            diam ut arcu pharetra dignissim ut sed leo. Vivamus faucibus,
-                                            ipsum in vestibulum vulputate, lorem orci convallis quam, sit
-                                            amet consequat nulla felis pharetra lacus. Duis semper erat
-                                            mauris, sed egestas purus commodo vel.
+                                            { product.description }
                                         </p>
                                         <ul className="list-inside mt-32 ms-16">
                                             <li className="text-gray-400 mb-4">
@@ -743,4 +731,4 @@ const ProductDetailsTwo = () => {
     )
 }
 
-export default ProductDetailsTwo
+export default ProductDetails

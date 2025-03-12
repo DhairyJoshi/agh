@@ -19,13 +19,13 @@ export default function Footer() {
                             </Link>
                         </div>
                         <div className="d-flex justify-content-between align-items-center">
-                            <i class="ph ph-instagram-logo fs-2 me-4" style={{ color: '#333333' }}></i>
+                            <i className="ph ph-instagram-logo fs-2 me-4" style={{ color: '#333333' }}></i>
 
-                            <i class="ph ph-linkedin-logo fs-2 me-4" style={{ color: '#333333' }}></i>
+                            <i className="ph ph-linkedin-logo fs-2 me-4" style={{ color: '#333333' }}></i>
 
-                            <i class="ph ph-whatsapp-logo fs-2" style={{ color: '#333333' }}></i>
+                            <i className="ph ph-whatsapp-logo fs-2" style={{ color: '#333333' }}></i>
                             
-                            <i class="ph ph-x-logo fs-2" style={{ color: '#333333' }}></i>
+                            <i className="ph ph-x-logo fs-2" style={{ color: '#333333' }}></i>
                         </div>
                     </div>
                     <div className="footer-item d-flex flex-column align-items-center align-items-lg-start">
