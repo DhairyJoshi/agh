@@ -1,6 +1,5 @@
 const initialState = {
     products: [],
-    categories: null,
     error: null,
 };
 
@@ -9,8 +8,7 @@ const ProductReducer = (state = initialState, action) => {
         case 'fetchAllProducts':
             return {
                 ...state,
-                products: action.payload.products,
-                categories: ['a', 'b', 'c'],
+                products: action.payload.data,
                 error: null,
             };
         case 'fetchAllProdsError':

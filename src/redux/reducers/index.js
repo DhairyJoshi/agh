@@ -7,7 +7,7 @@ export const actionCreators = {
 };
 
 const reducers = combineReducers({
-    productState: ProductReducer, // Store under productState key
+    productReducer: ProductReducer, // Store under productState key
 });
 
 export default reducers;

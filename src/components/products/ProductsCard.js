@@ -9,7 +9,7 @@ const ProductsCard = ({ product }) => {
                 className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
-                    src={ product.images }
+                    src={ `https://api.farmerconnects.com${product.image_1}` }
                     style={{ width:'auto', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 />
                 { product.bestsale &&
@@ -35,19 +35,19 @@ const ProductsCard = ({ product }) => {
                         className="link text-line-2"
                         tabIndex={0}
                     >
-                        { product.title }
+                        { product.product_name }
                     </Link>
                 </h6>
                 <div className="d-flex justify-content-between align-items-center mb-20 mt-16 gap-6">
                     <span className="text-heading text-md fw-semibold ">
                         &#8377;{ product.price } <span className="text-gray-500 fw-normal"></span>{" "}
                     </span>
-                    <div className="d-flex justify-content-center align-items center">
+                    {/* <div className="d-flex justify-content-center align-items center">
                         <span className="text-xs fw-medium text-gray-500 me-5">{ product.rating }</span>
                         <span className="text-15 fw-medium text-warning-600 d-flex">
                             <i className="ph-fill ph-star" />
                         </span>
-                    </div>
+                    </div> */}
                 </div>
                 {/* <div className="mt-8">
                     <div

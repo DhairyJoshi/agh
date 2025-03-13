@@ -10,9 +10,20 @@ const ProductsSection = () => {
 
     useEffect(() => {
         GET_ALL_PRODUCTS();
-    }, [GET_ALL_PRODUCTS]);
+    }, []);
+    
+    // useEffect(() => {
+    //     const getProduct = async() => {
+    //         const resData = await GET_ALL_PRODUCTS();
+    //         if(resData?.statuscode === 200){
+    //             setData(resData?.data)
+    //         }
+    //     } 
+    //     getProduct();
+    // },[]);
+    // console.log(data,"NewDatttttt")
 
-    const products = useSelector(state => state.productState.products);
+    const products = useSelector(state => state.productReducer.products);
 
     const [grid, setGrid] = useState(false);
     const [active, setActive] = useState(false);
@@ -23,17 +34,16 @@ const ProductsSection = () => {
     };
 
     const productCategories = {};
-
     products.forEach((product) => {
-        if (!productCategories[product.category]) {
-            productCategories[product.category] = [];
+        if (!productCategories[product.category_id.category_name]) {
+            productCategories[product.category_id.category_name] = [];
         }
-        productCategories[product.category].push(product);
+        productCategories[product.category_id.category_name].push(product);
     });
 
     // Filter products based on the selected category
     const filteredProducts = selectedCategory
-        ? products.filter(product => product.category === selectedCategory)
+        ? products.filter(product => product.category_id.category_name === selectedCategory)
         : products;
 
     return (

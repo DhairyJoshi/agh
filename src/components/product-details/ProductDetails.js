@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -9,14 +9,17 @@ const ProductDetails = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
-    const products = useSelector((state) => state.productState.products);
+    const products = useSelector((state) => state.productReducer.products);
+
+    const fetchProducts = useCallback(() => {
+        GET_ALL_PRODUCTS();
+    }, [GET_ALL_PRODUCTS]);
 
     useEffect(() => {
-        // Fetch products if they are empty (on page reload)
         if (!products || products.length === 0) {
-            dispatch(GET_ALL_PRODUCTS());
+            dispatch(fetchProducts());
         }
-    }, [dispatch, products]);
+    }, [products]);
 
     const product = products?.find((p) => p.id === parseInt(id));
 
@@ -55,7 +58,7 @@ const ProductDetails = () => {
                                     <div className="product-details__thumb-slider border border-gray-100 rounded-16">
                                         <div className="">
                                             <div className="product-details__thumb flex-center h-100">
-                                                <img src={product.images} alt="Main Product" />
+                                                <img src={ `https://api.farmerconnects.com${product.image_1}` } alt="Main Product" />
                                             </div>
                                         </div>
                                     </div>
@@ -75,42 +78,24 @@ const ProductDetails = () => {
                             <div className="col-xl-6">
                                 <div className="product-details__content">
                                     <h5 className="mb-12">
-                                        {product.title}
+                                        { product.product_name }
                                     </h5>
-                                    <div className="flex-align flex-wrap gap-12">
-                                        <div className="flex-align gap-12 flex-wrap">
-                                            <div className="flex-align gap-8">
-                                                <span className="text-15 fw-medium text-warning-600 d-flex">
-                                                    <i className="ph-fill ph-star" />
-                                                </span>
-                                                <span className="text-15 fw-medium text-warning-600 d-flex">
-                                                    <i className="ph-fill ph-star" />
-                                                </span>
-                                                <span className="text-15 fw-medium text-warning-600 d-flex">
-                                                    <i className="ph-fill ph-star" />
-                                                </span>
-                                                <span className="text-15 fw-medium text-warning-600 d-flex">
-                                                    <i className="ph-fill ph-star" />
-                                                </span>
-                                                <span className="text-15 fw-medium text-warning-600 d-flex">
-                                                    <i className="ph-fill ph-star" />
-                                                </span>
-                                            </div>
-                                            <span className="text-sm fw-medium text-neutral-600">
-                                                {product.rating} Star Rating
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <p className="text-gray-700">
-                                        {product.description}
+                                        { product.description }
                                     </p>
                                     <div className="my-32 flex-align gap-16 flex-wrap">
                                         <div className="flex-align gap-8">
-                                            <h6 className="mb-0">INR {product.price}</h6>
+                                            <h6 className="mb-0">INR { product.price }</h6>
                                         </div>
                                     </div>
                                     <div className="my-32 flex-align flex-wrap gap-12">
+                                            <div
+                                                className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
+                                            >
+                                                { product.category_id.category_name }
+                                            </div>
+                                    </div>
+                                    {/* <div className="my-32 flex-align flex-wrap gap-12">
                                         {product.tags.map((tag, index) => (
                                             <div
                                                 key={index}
@@ -119,9 +104,8 @@ const ProductDetails = () => {
                                                 {tag}
                                             </div>
                                         ))}
-                                    </div>
+                                    </div> */}
 
-                                    <span className="mt-32 pt-32 text-gray-700 border-top border-gray-100 d-block" />
                                     <Link
                                         to={`/inquiry/${product.id}`}
                                         className="btn btn-black flex-center gap-8 rounded-8 py-16"

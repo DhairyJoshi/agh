@@ -8,17 +8,15 @@ export default function InquiryForm() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
-    const products = useSelector((state) => state.productState.products);
+    const products = useSelector((state) => state.productReducer.products);
 
     useEffect(() => {
-        // Fetch products if they are empty (on page reload)
         if (!products || products.length === 0) {
             dispatch(GET_ALL_PRODUCTS());
         }
     }, [dispatch, products]);
 
     const product = products?.find((p) => p.id === parseInt(id));
-    console.log(product, "iq")
 
     const [form, setForm] = useState(null)
 
@@ -92,8 +90,8 @@ export default function InquiryForm() {
                                             className="common-input px-16"
                                             id="p_title"
                                             placeholder="Product Title*"
-                                            value={product?.title || null}
-                                            disabled={product?.title !== null}
+                                            value={product?.product_name || null}
+                                            disabled={product?.product_name !== null}
                                             style={{
                                                 borderRadius: '5px',
                                                 fontWeight: '200',
@@ -109,19 +107,19 @@ export default function InquiryForm() {
                                     </div>
                                     <div className="col-sm-4 col-xs-4">
                                         <label
-                                            htmlFor="p_brand"
+                                            htmlFor="p_category"
                                             className="flex-align gap-4 text-sm font-heading-two text-gray-900 fw-semibold mb-4"
                                         >
-                                            Product Brand
+                                            Product Category
                                             <span className="text-danger text-xl line-height-1">*</span>{" "}
                                         </label>
                                         <input
                                             type="text"
                                             className="common-input px-16"
-                                            id="p_brand"
+                                            id="p_category"
                                             placeholder="Product Brand*"
-                                            value={product?.brand || null}
-                                            disabled={product?.brand !== null}
+                                            value={product?.category_id?.category_name || null}
+                                            disabled={product?.category_id?.category_name !== null}
                                             style={{
                                                 borderRadius: '5px',
                                                 fontWeight: '200',
