@@ -85,7 +85,7 @@ export default function AdvertiseBanner() {
                                                 Discover Our New Arrivals
                                             </h1>
                                             <Link
-                                                to="/shop" style={{
+                                                to="/products" style={{
                                                     display: 'inline-flex',
                                                     alignItems: 'center',
                                                     color: '#fff',

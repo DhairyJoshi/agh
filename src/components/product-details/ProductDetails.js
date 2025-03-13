@@ -24,26 +24,16 @@ const ProductDetails = () => {
     const product = products?.find((p) => p.id === parseInt(id));
 
     const productImages = [
-        "assets/images/thumbs/product-details-two-thumb1.png",
-        "assets/images/thumbs/product-details-two-thumb2.png",
-        "assets/images/thumbs/product-details-two-thumb3.png",
-        "assets/images/thumbs/product-details-two-thumb1.png",
-        "assets/images/thumbs/product-details-two-thumb2.png",
+        `https://api.farmerconnects.com${product.image_0}`,
+        `https://api.farmerconnects.com${product.image_1}`,
+        `https://api.farmerconnects.com${product.image_2}`,
     ];
-
-    // increment & decrement
-    const [quantity, setQuantity] = useState(1);
-    const incrementQuantity = () => setQuantity(quantity + 1);
-    const decrementQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : quantity);
-
-
-    const [mainImage, setMainImage] = useState(productImages[0]);
 
     const settingsThumbs = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         focusOnSelect: true,
     };
@@ -66,7 +56,7 @@ const ProductDetails = () => {
                                         <div className="product-details__images-slider">
                                             <Slider {...settingsThumbs}>
                                                 {productImages.map((image, index) => (
-                                                    <div className="center max-w-120 max-h-120 h-100 flex-center border border-gray-100 rounded-16 p-8" key={index} onClick={() => setMainImage(image)}>
+                                                    <div className="center max-w-120 max-h-120 h-100 flex-center border border-gray-100 rounded-16 p-8" key={index}>
                                                         <img className='thum' src={image} alt={`Thumbnail ${index}`} />
                                                     </div>
                                                 ))}

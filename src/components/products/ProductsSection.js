@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductsCard from './ProductsCard';
 import { bindActionCreators } from 'redux';
@@ -8,10 +8,14 @@ const ProductsSection = () => {
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
 
-    useEffect(() => {
+    const fetchProducts = useCallback(() => {
         GET_ALL_PRODUCTS();
+    }, [GET_ALL_PRODUCTS]);
+
+    useEffect(() => {
+        fetchProducts();
     }, []);
-    
+
     // useEffect(() => {
     //     const getProduct = async() => {
     //         const resData = await GET_ALL_PRODUCTS();

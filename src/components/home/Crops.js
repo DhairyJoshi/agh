@@ -17,16 +17,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/tomato.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Tomato</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -46,16 +46,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/paddy.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Paddy</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -75,16 +75,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/mango.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Mango</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -104,16 +104,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/cotton.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Cotton</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -133,16 +133,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/citrius.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Citrius</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -162,16 +162,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/chilli.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Chilli</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -191,16 +191,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/cashew.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Cashew</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
@@ -220,16 +220,16 @@ const Crops = () => {
                                 <img
                                     src="assets/images/crops/watermelon.png"
                                     className="vendor-card__logo"
-                                    style={{ height: '5rem', width: '5rem' }}
+                                    style={{ height: '7rem', width: '7rem' }}
                                 />
                                 <h6 className="title mt-32">Watermelon</h6>
                             </div>
                             <div className="vendor-card__list mt-22 flex-center flex-wrap gap-8">
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle1.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
-                                    <img src="assets/images/crops/bottle2.png" alt="" />
+                                    <img src="assets/images/crops/bottle4.png" alt="" />
                                 </div>
                                 <div className="vendor-card__item bg-white rounded-circle flex-center">
                                     <img src="assets/images/crops/bottle3.png" alt="" />
