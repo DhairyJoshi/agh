@@ -15,6 +15,7 @@ import "react-country-state-city/dist/react-country-state-city.css";
 import Gallery from './components/gallery/Gallery';
 import ProductDetailsPage from './components/product-details/ProductDetailsPage';
 import Inquiry from './components/inquiry/Inquiry';
+import About from './components/about/About';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/inquiry/:id" element={<Inquiry />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/product-details/:id" element={<ProductDetailsPage />} />
+        <Route path="/about" element={<About />} />
         <Route path={ROUTES.terms_conditioon} element={<Terms />} />
         <Route path={ROUTES.privacyPolicy} element={<PrivacyPolicy />} />
         <Route path={ROUTES.refundPolicy} element={<RefundPolicy />} />

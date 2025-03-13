@@ -1,5 +1,4 @@
 import React from "react";
-import Preloader from "../../helper/Preloader";
 import Footer from "../../components/home/Footer";
 import ScrollToTop from "react-scroll-to-top";
 import TopHeader from "../home/TopHeader";

@@ -1,65 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import ProductsCard from './ProductsCard'
-import { bindActionCreators } from 'redux'
-import { actionCreators } from '../../redux/index'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ProductsCard from './ProductsCard';
+import { bindActionCreators } from 'redux';
+import { actionCreators } from '../../redux/index';
 
 const ProductsSection = () => {
-
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
 
     useEffect(() => {
         GET_ALL_PRODUCTS();
-    }, []);
+    }, [GET_ALL_PRODUCTS]);
 
     const products = useSelector(state => state.productState.products);
 
-    let [grid, setGrid] = useState(false);
-    let [active, setActive] = useState(false);
+    const [grid, setGrid] = useState(false);
+    const [active, setActive] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
-    let sidebarController = () => {
+    const sidebarController = () => {
         setActive(!active);
     };
 
-    const productCategories = [
-        "Organic Fertilizers",
-        "Synthetic Fertilizers",
-        "Slow-Release & Controlled-Release Fertilizers",
-        "Liquid Fertilizers",
-        "Biofertilizers",
-        "Specialty Fertilizers",
-        "Micronutrient Fertilizers",
-    ];
+    const productCategories = {};
 
-    const productsstatic = [
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Organic Compost', rating: 4.8, price: 1500, bestsale: false, sale: false, salePercent: 0, new: true },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Garden Soil', rating: 4.5, price: 1200, bestsale: false, sale: true, salePercent: 20, new: false },
-        { image: '/assets/images/productImages/prod2_1.png', name: 'Mulch', rating: 4.7, price: 800, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Vermicompost', rating: 4.6, price: 1800, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod2_1.png', name: 'Bone Meal', rating: 4.4, price: 1600, bestsale: false, sale: true, salePercent: 15, new: false },
-        { image: '/assets/images/productImages/prod3_1.png', name: 'Fish Emulsion', rating: 4.7, price: 2000, bestsale: true, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod3_1.png', name: 'Seaweed Extract', rating: 4.5, price: 2200, bestsale: false, sale: true, salePercent: 25, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Cow Manure', rating: 4.2, price: 900, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Poultry Manure', rating: 4.3, price: 950, bestsale: false, sale: false, salePercent: 0, new: true },
-        { image: '/assets/images/productImages/prod2_1.png', name: 'Urea Fertilizer', rating: 4.6, price: 1300, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod3_1.png', name: 'Ammonium Nitrate', rating: 4.5, price: 1400, bestsale: false, sale: true, salePercent: 10, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Superphosphate', rating: 4.3, price: 1250, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Diammonium Phosphate', rating: 4.4, price: 1700, bestsale: true, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod3_1.png', name: 'Potassium Sulfate', rating: 4.5, price: 1450, bestsale: false, sale: true, salePercent: 18, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'NPK 20-20-20', rating: 4.6, price: 1550, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Polymer-Coated Urea', rating: 4.8, price: 2300, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Slow-Release Fertilizer', rating: 4.5, price: 1800, bestsale: false, sale: true, salePercent: 12, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Liquid NPK Fertilizer', rating: 4.7, price: 1900, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Foliar Spray Fertilizer', rating: 4.6, price: 1700, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Micronutrient Fertilizer', rating: 4.4, price: 1600, bestsale: false, sale: true, salePercent: 20, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Rhizobium Biofertilizer', rating: 4.5, price: 2000, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Mycorrhizal Fungi Fertilizer', rating: 4.6, price: 1950, bestsale: false, sale: true, salePercent: 22, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Phosphate-Solubilizing Bacteria', rating: 4.3, price: 1700, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Lawn Fertilizer', rating: 4.7, price: 1850, bestsale: false, sale: false, salePercent: 0, new: false },
-        { image: '/assets/images/productImages/prod1_1.png', name: 'Vegetable & Fruit Fertilizer', rating: 4.6, price: 1750, bestsale: false, sale: true, salePercent: 20, new: false }
-    ];
+    products.forEach((product) => {
+        if (!productCategories[product.category]) {
+            productCategories[product.category] = [];
+        }
+        productCategories[product.category].push(product);
+    });
+
+    // Filter products based on the selected category
+    const filteredProducts = selectedCategory
+        ? products.filter(product => product.category === selectedCategory)
+        : products;
 
     return (
         <section className="shop pt-20 pb-80">
@@ -69,7 +44,8 @@ const ProductsSection = () => {
                     {/* Sidebar Start */}
                     <div className="col-lg-3">
                         <div className={`shop-sidebar ${active && "active"}`}>
-                            <button onClick={sidebarController}
+                            <button
+                                onClick={sidebarController}
                                 type="button"
                                 className="shop-sidebar__close d-lg-none d-flex w-32 h-32 flex-center border border-gray-100 rounded-circle hover-bg-main-600 position-absolute inset-inline-end-0 me-10 mt-8 hover-text-white hover-border-main-600"
                             >
@@ -80,11 +56,38 @@ const ProductsSection = () => {
                                     Product Category
                                 </h6>
                                 <ul className="max-h-540 overflow-y-auto scroll-sm">
-                                    {productCategories.map((category, index) => (
-                                        <li key={index} className="mb-24">
-                                            <Link to="/product-details" className="text-gray-900 hover-text-main-600">
-                                                {category} (12)
-                                            </Link>
+                                    <li className="mb-12">
+                                        <button
+                                            style={{
+                                                width: "100%",
+                                                textAlign: "left",
+                                                padding: "8px 12px",
+                                                borderRadius: "4px",
+                                                backgroundColor: selectedCategory === null ? "#299E60" : "transparent",
+                                                color: selectedCategory === null ? "white" : "#111827",
+                                                transition: "background-color 0.2s ease",
+                                            }}
+                                            onClick={() => setSelectedCategory(null)}
+                                        >
+                                            All Products ({products.length})
+                                        </button>
+                                    </li>
+                                    {Object.keys(productCategories).map((category, index) => (
+                                        <li key={index} className="mb-12">
+                                            <button
+                                                style={{
+                                                    width: "100%",
+                                                    textAlign: "left",
+                                                    padding: "8px 12px",
+                                                    borderRadius: "4px",
+                                                    backgroundColor: selectedCategory === category ? "#299E60" : "transparent",
+                                                    color: selectedCategory === category ? "white" : "#111827",
+                                                    transition: "background-color 0.2s ease",
+                                                }}
+                                                onClick={() => setSelectedCategory(category)}
+                                            >
+                                                {category} ({productCategories[category].length})
+                                            </button>
                                         </li>
                                     ))}
                                 </ul>
@@ -92,11 +95,13 @@ const ProductsSection = () => {
                         </div>
                     </div>
                     {/* Sidebar End */}
+
                     {/* Content Start */}
                     <div className="col-lg-9">
-                        {/* Top Start */}
                         <div className="flex-between gap-16 flex-wrap mb-40 ">
-                            <span className="text-gray-900">Showing 1-20 of 85 result</span>
+                            <span className="text-gray-900">
+                                Showing {filteredProducts.length} of {products.length} results
+                            </span>
                             <div className="position-relative flex-align gap-16 flex-wrap">
                                 <div className="list-grid-btns flex-align gap-16">
                                     <button onClick={() => setGrid(true)}
@@ -112,22 +117,6 @@ const ProductsSection = () => {
                                         <i className="ph ph-squares-four" />
                                     </button>
                                 </div>
-                                <div className="position-relative text-gray-500 flex-align gap-4 text-14">
-                                    <label htmlFor="sorting" className="text-inherit flex-shrink-0">
-                                        Sort by:{" "}
-                                    </label>
-                                    <select defaultValue={1}
-                                        className="form-control common-input px-14 py-14 text-inherit rounded-6 w-auto"
-                                        id="sorting"
-                                    >
-                                        <option value={1} >
-                                            Popular
-                                        </option>
-                                        <option value={1}>Latest</option>
-                                        <option value={1}>Trending</option>
-                                        <option value={1}>Matches</option>
-                                    </select>
-                                </div>
                                 <button onClick={sidebarController}
                                     type="button"
                                     className="w-44 h-44 d-lg-none d-flex flex-center border border-gray-100 rounded-6 text-2xl sidebar-btn"
@@ -136,100 +125,18 @@ const ProductsSection = () => {
                                 </button>
                             </div>
                         </div>
-                        {/* Top End */}
-                        <div className={`list-grid-wrapper ${grid && "list-view"}`}>
-                            
-                            {products.map((product, index) => (
-                                <ProductsCard 
-                                    key = { index }
-                                    product = { product }
-                                />
-                            ))}
 
+                        <div className={`list-grid-wrapper ${grid && "list-view"}`}>
+                            {filteredProducts.map((product, index) => (
+                                <ProductsCard key={index} product={product} />
+                            ))}
                         </div>
-                        {/* Pagination Start */}
-                        {/* <ul className="pagination flex-center flex-wrap gap-16">
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-xxl rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    <i className="ph-bold ph-arrow-left" />
-                                </Link>
-                            </li>
-                            <li className="page-item active">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    01
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    02
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    03
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    04
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    05
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    06
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-md rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    07
-                                </Link>
-                            </li>
-                            <li className="page-item">
-                                <Link
-                                    className="page-link h-64 w-64 flex-center text-xxl rounded-8 fw-medium text-neutral-600 border border-gray-100"
-                                    to="#"
-                                >
-                                    <i className="ph-bold ph-arrow-right" />
-                                </Link>
-                            </li>
-                        </ul> */}
-                        {/* Pagination End */}
                     </div>
                     {/* Content End */}
                 </div>
             </div>
         </section>
+    );
+};
 
-    )
-}
-
-export default ProductsSection
+export default ProductsSection;
