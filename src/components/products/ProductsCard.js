@@ -75,13 +75,22 @@ const ProductsCard = ({ product }) => {
                         &#8377;{price} <span className="text-gray-500 fw-normal"></span>{" "}
                     </span>
                 </div> */}
-                <Link
-                    to="#"
-                    className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-24 rounded-8 flex-center gap-8 fw-medium"
-                    tabIndex={0}
-                >
-                    Inquire More<i className="ph ph-whatsapp-logo fs-4" />
-                </Link>
+                <div className='d-flex justify-content-between align-items-center gap-8'>
+                    <Link
+                        to={`/product-details/${product.id}`}
+                        className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-12 rounded-8 flex-center gap-8 fw-medium"
+                        tabIndex={0}
+                    >
+                        Details<i className="ph ph-info fs-4" />
+                    </Link>
+                    <Link
+                        to={`/inquiry/${product.id}`}
+                        className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-12 rounded-8 flex-center gap-8 fw-medium"
+                        tabIndex={0}
+                    >
+                        Inquire<i className="ph ph-whatsapp-logo fs-4" />
+                    </Link>
+                </div>
             </div>
         </div>
     )

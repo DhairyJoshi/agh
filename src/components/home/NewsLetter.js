@@ -22,6 +22,7 @@ export default function NewsLetter() {
                                 </p> */}
                                 <form action="#" className="position-relative mt-40">
                                     <input
+                                        style={{ color: 'white' }}
                                         type="text"
                                         className="form-control common-input rounded-pill text-white py-22 px-16 pe-144"
                                         placeholder="Your email address..."

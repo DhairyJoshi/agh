@@ -167,7 +167,7 @@ const ProductBanner = () => {
                                                             </span>
                                                         </div>
                                                         <Link
-                                                            to="#"
+                                                            to={`/inquiry/${product.id}`}
                                                             className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-24 rounded-8 flex-center gap-8 fw-medium"
                                                             tabIndex={0}
                                                         >

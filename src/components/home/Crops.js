@@ -6,9 +6,7 @@ const Crops = () => {
         <section className="top-vendors py-80">
             <div className="container container-lg">
                 <div className="section-heading">
-                    <div className="flex-between flex-wrap gap-8">
-                        <h3 className="mb-0">Crops</h3>
-                    </div>
+                    <h3 className="text-center mb-0">Popular Crops</h3>
                 </div>
                 <div className="row gy-4 vendor-card-wrapper">
                     <div className="col-xxl-3 col-lg-4 col-sm-6">
