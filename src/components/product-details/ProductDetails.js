@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -19,7 +19,7 @@ const ProductDetails = () => {
         if (!products || products.length === 0) {
             dispatch(fetchProducts());
         }
-    }, [products]);
+    }, [products, dispatch, fetchProducts]);
 
     const product = products?.find((p) => p.id === parseInt(id));
 
@@ -46,10 +46,15 @@ const ProductDetails = () => {
                             <div className="col-xl-6">
                                 <div className="product-details__left">
                                     <div className="product-details__thumb-slider border border-gray-100 rounded-16">
-                                        <div className="">
-                                            <div className="product-details__thumb flex-center h-100">
-                                                <img src={ `https://api.farmerconnects.com${product.image_1}` } alt="Main Product" />
-                                            </div>
+                                        <div className="d-flex justify-content-center align-items-center" style={{ height: '100%' }}>
+                                            <img 
+                                            style={{ 
+                                                height: '100%',
+                                                width: 'auto',
+                                                objectFit: 'fill',
+                                                objectPosition: 'center'
+                                            }}
+                                            src={ `https://api.farmerconnects.com${product.image_1}` } alt="Main Product" />
                                         </div>
                                     </div>
                                     <div className="mt-24">
@@ -73,11 +78,11 @@ const ProductDetails = () => {
                                     <p className="text-gray-700">
                                         { product.description }
                                     </p>
-                                    <div className="my-32 flex-align gap-16 flex-wrap">
+                                    {/* <div className="my-32 flex-align gap-16 flex-wrap">
                                         <div className="flex-align gap-8">
                                             <h6 className="mb-0">INR { product.price }</h6>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="my-32 flex-align flex-wrap gap-12">
                                             <div
                                                 className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"

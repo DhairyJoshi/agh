@@ -80,7 +80,7 @@ export default function AdvertiseBanner() {
                                             zIndex: 2,
                                             opacity: activeSlide === index ? 1 : 0,
                                             transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
-                                            transition: 'opacity 1s ease, transform 1s ease'
+                                            transition: 'opacity 3s ease, transform 3s ease'
                                         }}>
                                             <h1 className="banner-item__title bounce mx-auto text-center" style={{ color: 'rgba(255,255,255,0.8)' }}>
                                                 Discover Our New Arrivals
@@ -96,7 +96,7 @@ export default function AdvertiseBanner() {
                                                     fontSize: '1rem',
                                                     opacity: activeSlide === index ? 1 : 0,
                                                     transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
-                                                    transition: 'opacity 1s ease 0.3s, transform 1s ease 0.3s'
+                                                    transition: 'opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s'
                                                 }}
                                                 className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                             >
@@ -119,7 +119,7 @@ export default function AdvertiseBanner() {
                                                     backgroundPosition: 'bottom',
                                                     backgroundRepeat: 'no-repeat',
                                                     opacity: activeSlide === index ? 1 : 0,
-                                                    transition: 'opacity 1.5s ease'
+                                                    transition: 'opacity 2s ease'
                                                 }}
                                             ></div>
                                         </div>

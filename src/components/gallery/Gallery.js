@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import $ from 'jquery';
 import 'magnific-popup';
 import TopHeader from '../home/TopHeader';
@@ -12,19 +12,9 @@ import img5 from '../../assets/product_gallery/5.jpg';
 import img6 from '../../assets/product_gallery/6.jpg';
 import img7 from '../../assets/product_gallery/7.jpg';
 import img8 from '../../assets/product_gallery/8.jpg';
+import Preloader from '../common/Preloader';
 
 export default function Gallery() {
-    const [time, setTime] = useState(new Date());
-    const [save, setSave] = useState(false);
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
     useEffect(() => {
         $('.gallery').magnificPopup({
             delegate: 'a',
@@ -38,8 +28,9 @@ export default function Gallery() {
     const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
     return (
-        <div>
-            <TopHeader isUpdate={save} />
+        <>
+            <Preloader />
+            <TopHeader />
             <Breadcrumbs main="View Gallery" parent="Gallery" />
             <div className="container container-lg d-flex justify-content-center align-items-center flex-wrap gallery">
                 {images.map((img, index) => (
@@ -55,6 +46,6 @@ export default function Gallery() {
                 ))}
             </div>
             <Footer />
-        </div>
+        </>
     );
 }

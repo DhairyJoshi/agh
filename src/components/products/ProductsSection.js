@@ -7,6 +7,7 @@ import { actionCreators } from '../../redux/index';
 const ProductsSection = () => {
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    // const [data, setData] = useState();
 
     const fetchProducts = useCallback(() => {
         GET_ALL_PRODUCTS();
@@ -22,10 +23,10 @@ const ProductsSection = () => {
     //         if(resData?.statuscode === 200){
     //             setData(resData?.data)
     //         }
-    //     } 
+    //     }
     //     getProduct();
     // },[]);
-    // console.log(data,"NewDatttttt")
+    // console.log(data,"data")
 
     const products = useSelector(state => state.productReducer.products);
 

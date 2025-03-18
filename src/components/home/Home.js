@@ -7,10 +7,13 @@ import ProductBanner from './ProductBanner'
 import Crops from './Crops'
 import About from './About'
 import CropsTwo from './CropsTwo'
+import Preloader from '../common/Preloader'
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Preloader />
+
       <TopHeader />
 
       <AdvertiseBanner />
@@ -26,6 +29,6 @@ export default function Home() {
       <NewsLetter />
 
       <Footer />
-    </div>
+    </>
   )
 }

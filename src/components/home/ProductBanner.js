@@ -36,7 +36,7 @@ const ProductBanner = () => {
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
 
     useEffect(() => {
-        GET_ALL_PRODUCTS();
+        GET_ALL_PRODUCTS(); // No need to wrap it in useCallback
     }, []);
 
     const products = useSelector(state => state.productReducer.products);
@@ -105,7 +105,7 @@ const ProductBanner = () => {
                             <div className="py-xl-4">
                                 <h4 className="text-white mb-8 mx-16">All you need for agriculture & hard work</h4>
                                 <div className="text-white m-16">
-                                AGH offers diverse crop nourishment products ranging from Chelates to water soluble micronutrients & fertilizers. The Best Micronutrients Company in India.
+                                    AGH offers diverse crop nourishment products ranging from Chelates to water soluble micronutrients & fertilizers. The Best Micronutrients Company in India.
                                 </div>
                                 <Link
                                     to="/products"
@@ -123,33 +123,33 @@ const ProductBanner = () => {
                     <div className="col-md-8">
                         <div className="hot-deals-slider arrow-style-two">
                             <Slider {...settings}>
-                                
+
                                 {
                                     products.map((product) => (
                                         <div>
                                             <div style={{ height: '26rem', overflow: 'hidden' }} className="d-flex justify-content-between flex-column border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                                 <Link
                                                     to={`/product-details/${product.id}`}
-                                                    style={{ 
+                                                    style={{
                                                         width: 'auto',
                                                         height: '60%',
                                                         overflow: 'hidden',
                                                         display: 'flex',
                                                         justifyContent: 'center',
                                                         alignItems: 'center',
-                                                     }}
-                                                >
-                                                    <img src={ `https://api.farmerconnects.com${product.image_1}` } alt="image" 
-                                                    style={{ 
-                                                        objectFit: 'cover',
-                                                        objectPosition: 'center'
                                                     }}
+                                                >
+                                                    <img src={`https://api.farmerconnects.com${product.image_1}`} alt="prod_image"
+                                                        style={{
+                                                            objectFit: 'cover',
+                                                            objectPosition: 'center'
+                                                        }}
                                                     />
                                                 </Link>
                                                 <div className="product-card__content p-sm-2">
                                                     <h6 className="title text-lg fw-semibold mt-12 mb-8">
                                                         <Link to="/product-details" className="link text-line-2">
-                                                            { product.product_name }
+                                                            {product.product_name}
                                                         </Link>
                                                     </h6>
                                                     <div className="flex-align gap-4">
@@ -157,15 +157,15 @@ const ProductBanner = () => {
                                                             <i className="ph-fill ph-storefront" />
                                                         </span>
                                                         <span className="text-gray-500 text-xs">
-                                                            By { product.category_id.category_name }
+                                                            By {product.category_id.category_name}
                                                         </span>
                                                     </div>
                                                     <div className="product-card__content mt-12">
-                                                        <div className="product-card__price mb-8">
+                                                        {/* <div className="product-card__price mb-8">
                                                             <span className="text-heading text-md fw-semibold ">
                                                                 &#8377;{ product.price }
                                                             </span>
-                                                        </div>
+                                                        </div> */}
                                                         <Link
                                                             to={`/inquiry/${product.id}`}
                                                             className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-24 rounded-8 flex-center gap-8 fw-medium"

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
 
 export default function ContactForm() {
 
     const [form, setForm] = useState(null)
-    const user = JSON.parse(localStorage.getItem('user') || null)
-    const dispatch = useDispatch()
+    // const user = JSON.parse(localStorage.getItem('user') || null)
+    // const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault()

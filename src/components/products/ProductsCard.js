@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 const ProductsCard = ({ product }) => {
     return (
-        <div className="product-card p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2" style={{ height: '28rem' }}>
+        <div className="product-card p-16 border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2" style={{ height: '26rem' }}>
             <Link
                 to={`/product-details/${product.id}`}
                 className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
-                    src={ `https://api.farmerconnects.com${product.image_1}` }
+                    src={ `https://api.farmerconnects.com${product.image_1}` } alt="prod_img"
                     style={{ width:'auto', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 />
                 { product.bestsale &&
@@ -39,9 +39,9 @@ const ProductsCard = ({ product }) => {
                     </Link>
                 </h6>
                 <div className="d-flex justify-content-between align-items-center mb-20 mt-16 gap-6">
-                    <span className="text-heading text-md fw-semibold ">
+                    {/* <span className="text-heading text-md fw-semibold ">
                         &#8377;{ product.price } <span className="text-gray-500 fw-normal"></span>{" "}
-                    </span>
+                    </span> */}
                     {/* <div className="d-flex justify-content-center align-items center">
                         <span className="text-xs fw-medium text-gray-500 me-5">{ product.rating }</span>
                         <span className="text-15 fw-medium text-warning-600 d-flex">

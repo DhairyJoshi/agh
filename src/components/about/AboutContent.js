@@ -11,28 +11,28 @@ const AboutContent = () => {
             <div className='d-flex flex-wrap justify-content-between align-items-center mt-80'>
                 <div className='d-flex flex-column justify-content-center align-items-center m-16'>
                     <div className='mb-12' style={{ width: '9rem', height: '9rem' }}>
-                        <img src="assets/images/about/variety.png" />
+                        <img src="assets/images/about/variety.png" alt="Variety" />
                     </div>
                     <span className='text-center fs-5'>Widest Variety</span>
                 </div>
 
                 <div className='d-flex flex-column justify-content-center align-items-center m-16'>
                     <div className='mb-12' style={{ width: '9rem', height: '9rem' }}>
-                        <img src="assets/images/about/quality.png" />
+                        <img src="assets/images/about/quality.png" alt="Quality" />
                     </div>
                     <span className='text-center fs-5'>Quality Assurance</span>
                 </div>
 
                 <div className='d-flex flex-column justify-content-center align-items-center m-16'>
                     <div className='mb-12' style={{ width: '9rem', height: '9rem' }}>
-                        <img src="assets/images/about/price.png" />
+                        <img src="assets/images/about/price.png" alt="Budget" />
                     </div>
                     <span className='text-center fs-5'>Budget Friendly</span>
                 </div>
 
                 <div className='d-flex flex-column justify-content-center align-items-center m-16'>
                     <div className='mb-12' style={{ width: '9rem', height: '9rem' }}>
-                        <img src="assets/images/about/source.png" />
+                        <img src="assets/images/about/source.png" alt="Source" />
                     </div>
                     <span className='text-center fs-5'>Locally Sourced</span>
                 </div>

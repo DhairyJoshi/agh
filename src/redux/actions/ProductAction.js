@@ -5,7 +5,7 @@ export const GET_ALL_PRODUCTS = () => async (dispatch) => {
         });
         const data = await response.json();
         dispatch({ type: 'fetchAllProducts', payload: data });
-        return data
+        return data;
     } catch (error) {
         console.error("Error fetching products:", error);
         dispatch({ type: 'fetchAllProdsError', payload: error });

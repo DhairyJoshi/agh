@@ -9,7 +9,6 @@ const ProductReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: action.payload.data,
-                error: null,
             };
         case 'fetchAllProdsError':
             return {

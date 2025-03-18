@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../redux';
@@ -19,7 +19,7 @@ export default function InquiryForm() {
         if (!products || products.length === 0) {
             dispatch(GET_ALL_PRODUCTS());
         }
-    }, [dispatch, products]);
+    }, [dispatch, products, GET_ALL_PRODUCTS]);
 
     const product = products?.find((p) => p.id === parseInt(id));
 

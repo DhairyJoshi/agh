@@ -1,10 +1,10 @@
 /* ============================ Product Details Css Start ============================= */
 .product-details {
-    &__thumb {
-        &-slider {
-            padding: clampCal(48, 116);
-        }
-    }
+    // &__thumb {
+    //     &-slider {
+    //         padding: clampCal(48, 116);
+    //     }
+    // }
 
     .slick-initialized.slick-slider .slick-slide > div > div {
         height: 100%;

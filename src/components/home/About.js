@@ -23,7 +23,7 @@ const About = () => {
                                     At AGH, we are committed to revolutionizing agriculture with high-quality, sustainable fertilizers that enhance soil health and maximize crop yields. With a passion for innovation and a deep understanding of farmers' needs, we provide nutrient-rich solutions tailored for every soil type and farming practice. Our mission is to empower farmers with eco-friendly, cost-effective fertilizers that ensure bountiful harvests while preserving the environment. Partner with us to cultivate a greener, more productive future!
                                 </span>
                                 <Link
-                                    to='/shop'
+                                    to='/about'
                                     className='btn btn-outline-white d-inline-flex align-items-center rounded-pill gap-8 mt-48'
                                     tabIndex={0}
                                 >

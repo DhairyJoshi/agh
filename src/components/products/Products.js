@@ -4,12 +4,14 @@ import ScrollToTop from "react-scroll-to-top";
 import TopHeader from "../home/TopHeader";
 import Breadcrumbs from "../common/Breadcrumbs";
 import ProductsSection from "./ProductsSection";
+import Preloader from "../common/Preloader";
 
 const Products = () => {
 
   return (
     <>
-      {/* ScrollToTop */}
+      <Preloader />
+
       <ScrollToTop smooth color="#299E60" />
 
       <TopHeader />

@@ -6,11 +6,13 @@ import ProductDetails from "./ProductDetails";
 import Breadcrumbs from "../common/Breadcrumbs";
 import Suggestions from "./Suggestions";
 import NewsLetter from "../home/NewsLetter";
+import PreloaderTwo from "../common/PreloaderTwo";
 
 const ProductDetailsPage = () => {
     return (
         <>
-            {/* ScrollToTop */}
+            <PreloaderTwo />
+
             <ScrollToTop smooth color="#299E60" />
 
             <TopHeader />
