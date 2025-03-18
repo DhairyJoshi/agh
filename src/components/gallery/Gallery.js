@@ -13,6 +13,8 @@ import img6 from '../../assets/product_gallery/6.jpg';
 import img7 from '../../assets/product_gallery/7.jpg';
 import img8 from '../../assets/product_gallery/8.jpg';
 import Preloader from '../common/Preloader';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.compat.css"
 
 export default function Gallery() {
     useEffect(() => {
@@ -30,21 +32,27 @@ export default function Gallery() {
     return (
         <>
             <Preloader />
+
             <TopHeader />
+
             <Breadcrumbs main="View Gallery" parent="Gallery" />
-            <div className="container container-lg d-flex justify-content-center align-items-center flex-wrap gallery">
-                {images.map((img, index) => (
-                    <div key={index} style={{ margin: '0.5rem 0.75rem' }}>
-                        <a href={img}>
-                            <img 
-                                style={{ width:'400px', height: '280px', objectFit: 'cover', objectPosition: 'center', borderRadius: '0.75rem' }}
-                                src={img} 
-                                alt={`Gallery ${index + 1}`} 
-                            />
-                        </a>
-                    </div>
-                ))}
-            </div>
+
+            <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <div className="container container-lg d-flex justify-content-center align-items-center flex-wrap gallery">
+                    {images.map((img, index) => (
+                        <div key={index} style={{ margin: '0.5rem 0.75rem' }}>
+                            <a href={img}>
+                                <img 
+                                    style={{ width:'400px', height: '280px', objectFit: 'cover', objectPosition: 'center', borderRadius: '0.75rem' }}
+                                    src={img} 
+                                    alt={`Gallery ${index + 1}`} 
+                                />
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </ScrollAnimation>
+
             <Footer />
         </>
     );

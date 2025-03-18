@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CropsTwo = () => {
+const Seeds = () => {
 
     const cropDetails = [
         { imgUrl: "assets/images/crops/wheat-seeds.jpeg", title: "Wheat" },
@@ -20,15 +20,11 @@ const CropsTwo = () => {
 
                 <div className='d-flex flex-wrap justify-content-center'>
                     {cropDetails.map((crop, index) => (
-                        <div key={index} className='d-flex flex-column justify-content-center align-items-center m-10'>
-                            <div style={{ width: '15rem', height: '15rem', borderRadius: '100%', overflow: 'hidden' }}>
-                                <img
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
-                                    src={crop.imgUrl}
-                                    alt={crop.title}
-                                />
+                        <div key={index} className='seed-container'>
+                            <div className='seed-image-container'>
+                                <img className='seed-image' src={crop.imgUrl} alt={crop.title} />
                             </div>
-                            <h6 className='mt-20'>{crop.title}</h6>
+                            <h6 className='seed-title'>{crop.title}</h6>
                         </div>
                     ))}
                 </div>
@@ -37,4 +33,4 @@ const CropsTwo = () => {
     )
 }
 
-export default CropsTwo
+export default Seeds

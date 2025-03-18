@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductsCard from './ProductsCard';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../redux/index';
+import ScrollAnimation from 'react-animate-on-scroll';
+import "animate.css/animate.compat.css"
 
 const ProductsSection = () => {
     const dispatch = useDispatch();
@@ -143,7 +145,9 @@ const ProductsSection = () => {
 
                         <div className={`list-grid-wrapper ${grid && "list-view"}`}>
                             {filteredProducts.map((product, index) => (
-                                <ProductsCard key={index} product={product} />
+                                <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                                    <ProductsCard key={index} product={product} />
+                                </ScrollAnimation>
                             ))}
                         </div>
                     </div>

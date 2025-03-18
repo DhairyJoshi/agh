@@ -5,6 +5,7 @@ import TopHeader from "../home/TopHeader";
 import Breadcrumbs from "../common/Breadcrumbs";
 import ProductsSection from "./ProductsSection";
 import Preloader from "../common/Preloader";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const Products = () => {
 

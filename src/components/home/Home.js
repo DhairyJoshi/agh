@@ -6,8 +6,10 @@ import Footer from './Footer'
 import ProductBanner from './ProductBanner'
 import Crops from './Crops'
 import About from './About'
-import CropsTwo from './CropsTwo'
+import Seeds from './Seeds'
 import Preloader from '../common/Preloader'
+import ScrollAnimation from 'react-animate-on-scroll'
+import "animate.css/animate.compat.css"
 
 export default function Home() {
   return (
@@ -16,17 +18,29 @@ export default function Home() {
 
       <TopHeader />
 
-      <AdvertiseBanner />
+      <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+        <AdvertiseBanner />
+      </ScrollAnimation>
 
-      <About />
+      <ScrollAnimation animateIn="fadeInUp" duration={2} animateOnce={true}>
+        <About />
+      </ScrollAnimation>
 
-      <ProductBanner />
+      <ScrollAnimation animateIn="fadeInUp" duration={2} animateOnce={true}>
+        <ProductBanner />
+      </ScrollAnimation>
 
-      <Crops />
+      <ScrollAnimation animateIn="fadeInUp" duration={2} animateOnce={true}>
+        <Crops />
+      </ScrollAnimation>
 
-      <CropsTwo />
+      <ScrollAnimation animateIn="fadeInUp" duration={2} animateOnce={true}>
+        <Seeds />
+      </ScrollAnimation>
 
-      <NewsLetter />
+      <ScrollAnimation animateIn="fadeInUp" duration={2} animateOnce={true}>
+        <NewsLetter />
+      </ScrollAnimation>
 
       <Footer />
     </>

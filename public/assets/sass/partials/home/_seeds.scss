@@ -1,0 +1,37 @@
+.seed-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    .seed-image-container {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+
+        .seed-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    .seed-title {
+        margin-top: 20px;
+    }
+
+    &:hover {
+        .seed-image-container {
+            transform: scale(1.15);
+        }
+
+        .seed-image {
+            transform: scale(1.2);
+        }
+    }
+}

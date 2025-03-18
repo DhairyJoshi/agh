@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const About = () => {
     return (
-        <section className='promo-three pt-120   overflow-hidden'>
+        <section className='promo-three pt-120 overflow-hidden'>
             <div className='container container-lg'>
                     <div>
                         <h3>About Us</h3>
