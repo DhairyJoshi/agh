@@ -7,14 +7,14 @@
     mask-repeat: no-repeat;
     background: red;
     mask-position: top;
-    mask-size: 160% 150%;
+    mask-size: 150% 150%;
 
     @media (max-width: 576px) {
-        mask-size: 80% 180%;
+        mask-size: 100% 100%;
     }
 
     @media (max-width: 767px) {
-        mask-size: 110% 180%;
+        mask-size: 150% 100%;
     }
 
     &__logo {

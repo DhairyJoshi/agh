@@ -93,7 +93,7 @@ const ProductBanner = () => {
                 </div>
                 <div className="row g-12">
                     <div className="col-md-4">
-                        <div className="hot-deals position-relative rounded-16 bg-main-600 overflow-hidden p-32 z-1 text-center">
+                        <div className="hot-deals position-relative rounded-16 bg-main-600 overflow-hidden z-1 text-center h-100 d-flex flex-col justify-content-center align-items-center">
                             {/* <img
                                 src="assets/images/shape/offer-shape.png"
                                 alt=""
@@ -105,7 +105,7 @@ const ProductBanner = () => {
                             <div className="py-xl-4">
                                 <h4 className="text-white mb-8 mx-16">All you need for agriculture & hard work</h4>
                                 <div className="text-white m-16">
-                                    AGH offers diverse crop nourishment products ranging from Chelates to water soluble micronutrients & fertilizers. The Best Micronutrients Company in India.
+                                    AGH offers diverse crop nourishment products for all your agricultural needs
                                 </div>
                                 <Link
                                     to="/products"
