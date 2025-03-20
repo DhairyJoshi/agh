@@ -3,10 +3,13 @@ import TopHeader from '../home/TopHeader'
 import Footer from '../home/Footer'
 import Banner from './Banner'
 import AboutBreadCrumb from './AboutBreadCrumb'
-import AboutContent from './AboutContent'
 import Preloader from '../common/Preloader'
 import ScrollAnimation from 'react-animate-on-scroll'
 import "animate.css/animate.compat.css"
+import FeaturesSection from './FeaturesSection'
+import Vision from './Vision'
+import Mission from './Mission'
+import Testiomnial from './Testimonial'
 
 export default function About() {
     return (
@@ -22,8 +25,20 @@ export default function About() {
             </ScrollAnimation>
 
             <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
-                <AboutContent />
+                <FeaturesSection />
             </ScrollAnimation>
+
+            <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <Vision />
+            </ScrollAnimation>
+
+            <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <Mission />
+            </ScrollAnimation>
+
+            {/* <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <Testiomnial />
+            </ScrollAnimation> */}
 
             <Footer />
         </div>
