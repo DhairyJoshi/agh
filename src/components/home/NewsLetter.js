@@ -24,7 +24,7 @@ export default function NewsLetter() {
                                     <input
                                         style={{ color: 'white' }}
                                         type="text"
-                                        className="form-control common-input rounded-pill text-white py-22 px-16 pe-144"
+                                        className="placeholder-white form-control common-input rounded-pill text-white py-22 px-16 pe-144"
                                         placeholder="Your email address..."
                                     />
                                     <button
@@ -34,6 +34,13 @@ export default function NewsLetter() {
                                         Subscribe
                                     </button>
                                 </form>
+                                <style>
+                                    {`
+                                        .placeholder-white::placeholder {
+                                            color: white;
+                                        }
+                                    `}
+                                </style>
                             </div>
                         </div>
                         <div className="col-xl-6 text-center d-xl-block d-none">

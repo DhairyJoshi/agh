@@ -65,8 +65,7 @@ export default function AdvertiseBanner() {
                     <div className="banner-slider">
                         <Slider {...settings}>
                             {[bannerBg1, bannerBg2].map((bg, index) => (
-
-                                <div>
+                                <div key={ index }>
                                     <div className='position-relative d-flex justify-content-center align-items-center'>
                                         <div className="w-100 h-100 position-absolute d-flex flex-column align-items-center justify-content-center text-center banner-item__content" style={{
                                             zIndex: 2,

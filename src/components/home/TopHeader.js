@@ -43,10 +43,10 @@ export default function TopHeader() {
 
     // Mobile menu support
     const [menuActive, setMenuActive] = useState(false)
-    const [activeIndex, setActiveIndex] = useState(null);
-    const handleMenuClick = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
-    };
+    const [activeIndex /* eslint-disable-line no-unused-vars */, setActiveIndex] = useState(null);
+    // const handleMenuClick = (index) => {
+    //     setActiveIndex(activeIndex === index ? null : index);
+    // };
     const handleMenuToggle = () => {
         setMenuActive(!menuActive);
     };

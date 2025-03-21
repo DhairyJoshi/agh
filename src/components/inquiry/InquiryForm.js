@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../redux';
@@ -7,14 +7,9 @@ import { actionCreators } from '../../redux';
 export default function InquiryForm() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const location = useLocation();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
     const products = useSelector((state) => state.productReducer.products);
 
-    useEffect(()=>{
-        window.scrollTo(0,0);
-    },[location.pathname])
-    
     useEffect(() => {
         if (!products || products.length === 0) {
             dispatch(GET_ALL_PRODUCTS());

@@ -9,6 +9,7 @@ import "animate.css/animate.compat.css"
 const ProductsSection = () => {
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    const products = useSelector((state) => state.productReducer.products);
     // const [data, setData] = useState();
 
     const fetchProducts = useCallback(() => {
@@ -16,8 +17,10 @@ const ProductsSection = () => {
     }, [GET_ALL_PRODUCTS]);
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        if (!products || products.length === 0) {
+            dispatch(fetchProducts());
+        }
+    }, [products, dispatch, fetchProducts]);
 
     // useEffect(() => {
     //     const getProduct = async() => {
@@ -29,8 +32,6 @@ const ProductsSection = () => {
     //     getProduct();
     // },[]);
     // console.log(data,"data")
-
-    const products = useSelector(state => state.productReducer.products);
 
     const [grid, setGrid] = useState(false);
     const [active, setActive] = useState(false);
@@ -145,8 +146,12 @@ const ProductsSection = () => {
 
                         <div className={`list-grid-wrapper ${grid && "list-view"}`}>
                             {filteredProducts.map((product, index) => (
-                                <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
-                                    <ProductsCard key={index} product={product} />
+                                <ScrollAnimation 
+                                key={ product._id || index } 
+                                animateIn="fadeIn" 
+                                duration={2} 
+                                animateOnce={true}>
+                                    <ProductsCard product={product} />
                                 </ScrollAnimation>
                             ))}
                         </div>

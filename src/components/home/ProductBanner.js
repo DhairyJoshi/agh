@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -34,12 +34,17 @@ const SamplePrevArrow = memo((props) => {
 const ProductBanner = () => {
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    const products = useSelector(state => state.productReducer.products);
+
+    const fetchProducts = useCallback(() => {
+        GET_ALL_PRODUCTS();
+    }, [GET_ALL_PRODUCTS]);
 
     useEffect(() => {
-        GET_ALL_PRODUCTS(); // No need to wrap it in useCallback
-    }, []);
-
-    const products = useSelector(state => state.productReducer.products);
+        if (!products || products.length === 0) {
+            dispatch(fetchProducts());
+        }
+    }, [products, dispatch, fetchProducts]);
 
     const settings = {
         dots: false,
@@ -125,8 +130,8 @@ const ProductBanner = () => {
                             <Slider {...settings}>
 
                                 {
-                                    products.map((product) => (
-                                        <div>
+                                    products.map((product, index) => (
+                                        <div key={ product._id || index } >
                                             <div style={{ height: '26rem', overflow: 'hidden' }} className="d-flex justify-content-between flex-column border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                                 <Link
                                                     to={`/product-details/${product.id}`}

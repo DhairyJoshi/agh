@@ -8,16 +8,17 @@ import { actionCreators } from '../../redux/index';
 const Suggestions = () => {
     const dispatch = useDispatch();
     const { GET_ALL_PRODUCTS } = bindActionCreators(actionCreators, dispatch);
+    const products = useSelector(state => state.productReducer.products);
 
     const fetchProducts = useCallback(() => {
         GET_ALL_PRODUCTS();
     }, [GET_ALL_PRODUCTS]);
 
     useEffect(() => {
-        fetchProducts();
-    }, []);
-
-    const products = useSelector(state => state.productReducer.products);
+        if (!products || products.length === 0) {
+            dispatch(fetchProducts());
+        }
+    }, [products, dispatch, fetchProducts]);
 
     function SampleNextArrow(props) {
         const { className, onClick } = props;
@@ -103,10 +104,9 @@ const Suggestions = () => {
                 </div>
                 <div className="new-arrival__slider arrow-style-two">
                     <Slider {...settings}>
-
                         {
-                            products.map((product) => (
-                                <div>
+                            products.map((product, index) => (
+                                <div key={product._id || index}>
                                     <div style={{ height: '24rem', overflow: 'hidden' }} className="d-flex justify-content-between flex-column border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                         <Link
                                             to={`/product-details/${product.id}`}
@@ -142,7 +142,7 @@ const Suggestions = () => {
                                             </div>
                                             <div className="product-card__content mt-12">
                                                 <Link
-                                                    to="#"
+                                                    to={`/inquiry/${product.id}`}
                                                     className="product-card__cart w-100 btn bg-gray-50 text-heading hover-bg-main-600 hover-text-white px-24 rounded-8 flex-center gap-8 fw-medium"
                                                     tabIndex={0}
                                                 >
