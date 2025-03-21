@@ -79,6 +79,27 @@
   }
 }
 
+.py-90 {
+  padding-block-start: 70px !important;
+  padding-block-end: 70px !important;
+  @media (min-width: 992px) {
+    padding-block-start: 90px !important;
+    padding-block-end: 90px !important;
+  }
+}
+.pt-90 {
+    padding-block-start: 70px !important;
+    @media (min-width: 992px) {
+    padding-block-start: 90px !important;
+  }
+}
+.pb-90 {
+    padding-block-end: 70px !important;
+    @media (min-width: 992px) {
+    padding-block-end: 90px !important;
+  }
+}
+
 .py-60 {
     padding-block-start: 30px !important;
     padding-block-end: 30px !important;

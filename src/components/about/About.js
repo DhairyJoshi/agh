@@ -9,6 +9,7 @@ import "animate.css/animate.compat.css";
 import FeaturesSection from "./FeaturesSection";
 import Vision from "./Vision";
 import Mission from "./Mission";
+import Testimonial from "./Testimonial";
  
 export default function About() {
     return (
@@ -33,6 +34,13 @@ export default function About() {
 
             <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
                 <Mission />
+            </ScrollAnimation>
+
+            <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <section className='py-80'>
+                    <Testimonial />
+                </section>
+
             </ScrollAnimation>
 
             <Footer />

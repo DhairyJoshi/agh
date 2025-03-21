@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import query from 'jquery';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/agh_logo.png'
-import { useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
-export default function TopHeader(props) {
+export default function TopHeader() {
     const [scroll, setScroll] = useState(false)
 
     useEffect(() => {
@@ -28,20 +26,20 @@ export default function TopHeader(props) {
 
     }, []);
 
-    useEffect(() => {
-        const handleBeforeUnload = (event) => {
-            event.preventDefault();
-            event.returnValue = sessionStorage.removeItem('isSendNotifications'); // Required for most browsers to display a confirmation dialog
-        };
+    // useEffect(() => {
+    //     const handleBeforeUnload = (event) => {
+    //         event.preventDefault();
+    //         event.returnValue = sessionStorage.removeItem('isSendNotifications'); // Required for most browsers to display a confirmation dialog
+    //     };
 
-        // Add event listener to prevent page refresh
-        window.addEventListener('beforeunload', handleBeforeUnload);
+    //     // Add event listener to prevent page refresh
+    //     window.addEventListener('beforeunload', handleBeforeUnload);
 
-        // Cleanup the event listener on component unmount
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, []);
+    //     // Cleanup the event listener on component unmount
+    //     return () => {
+    //         window.removeEventListener('beforeunload', handleBeforeUnload);
+    //     };
+    // }, []);
 
     // Mobile menu support
     const [menuActive, setMenuActive] = useState(false)

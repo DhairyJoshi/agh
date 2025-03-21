@@ -67,16 +67,8 @@ export default function AdvertiseBanner() {
                             {[bannerBg1, bannerBg2].map((bg, index) => (
 
                                 <div>
-                                    <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
-                                        <div className="banner-item__content" style={{
-                                            position: 'absolute',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            textAlign: 'center',
-                                            width: '100%',
-                                            height: '100%',
+                                    <div className='position-relative d-flex justify-content-center align-items-center'>
+                                        <div className="w-100 h-100 position-absolute d-flex flex-column align-items-center justify-content-center text-center banner-item__content" style={{
                                             zIndex: 2,
                                             opacity: activeSlide === index ? 1 : 0,
                                             transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
@@ -86,9 +78,7 @@ export default function AdvertiseBanner() {
                                                 Discover Our New Arrivals
                                             </h1>
                                             <Link
-                                                to="/products" style={{
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
+                                                to="/products" className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8" style={{
                                                     color: '#fff',
                                                     padding: '10px 20px',
                                                     borderRadius: '30px',
@@ -98,7 +88,6 @@ export default function AdvertiseBanner() {
                                                     transform: activeSlide === index ? 'translateY(0)' : 'translateY(30px)',
                                                     transition: 'opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s'
                                                 }}
-                                                className="btn btn-main d-inline-flex align-items-center rounded-pill gap-8"
                                             >
                                                 View Products{" "}
                                                 <span className="icon text-xl d-flex">
