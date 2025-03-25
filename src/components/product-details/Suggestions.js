@@ -95,11 +95,11 @@ const Suggestions = () => {
         ],
     };
     return (
-        <section className="new-arrival pb-80">
+        <section className="new-arrival py-80">
             <div className="container container-lg">
                 <div className="section-heading">
                     <div className="flex-between flex-wrap gap-8">
-                        <h5 className="mb-0">You Might Also Like</h5>
+                        <h5 className="mb-0">Similar Products</h5>
                     </div>
                 </div>
                 <div className="new-arrival__slider arrow-style-two">
