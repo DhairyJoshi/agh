@@ -4,14 +4,6 @@ import 'magnific-popup';
 import TopHeader from '../home/TopHeader';
 import Footer from '../home/Footer';
 import Breadcrumbs from '../common/Breadcrumbs';
-import img1 from '../../assets/product_gallery/1.jpg';
-import img2 from '../../assets/product_gallery/2.jpg';
-import img3 from '../../assets/product_gallery/3.jpg';
-import img4 from '../../assets/product_gallery/4.jpg';
-import img5 from '../../assets/product_gallery/5.jpg';
-import img6 from '../../assets/product_gallery/6.jpg';
-import img7 from '../../assets/product_gallery/7.jpg';
-import img8 from '../../assets/product_gallery/8.jpg';
 import Preloader from '../common/Preloader';
 import ScrollAnimation from 'react-animate-on-scroll';
 import "animate.css/animate.compat.css"
@@ -34,8 +26,6 @@ export default function Gallery() {
             dispatch(fetchProducts());
         }
     }, [products, dispatch, fetchProducts]);
-
-    console.log(products)
 
     useEffect(() => {
         $('.gallery').magnificPopup({

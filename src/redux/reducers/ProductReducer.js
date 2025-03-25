@@ -5,12 +5,12 @@ const initialState = {
 
 const ProductReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'fetchAllProducts':
+        case 'PRODUCTS':
             return {
                 ...state,
                 products: action.payload.data,
             };
-        case 'fetchAllProdsError':
+        case 'PRODUCTS_ERR':
             return {
                 ...state,
                 error: action.payload,
