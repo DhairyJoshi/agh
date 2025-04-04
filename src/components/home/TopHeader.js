@@ -103,7 +103,7 @@ export default function TopHeader() {
                                     onClick={() => setActiveIndex(null)}
                                 >
                                     <div className='d-flex'>
-                                        <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "16px" }} />
+                                        <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "16px", color: "transparent" }} />
                                         Products
                                     </div>
                                 </Link>
@@ -127,7 +127,7 @@ export default function TopHeader() {
                                     onClick={() => setActiveIndex(null)}
                                 >
                                     <div className='d-flex'>
-                                        <i className="ph ph-info mr-1" style={{ fontSize: "16px" }} />
+                                        <i className="ph ph-info mr-1" style={{ fontSize: "16px", color: "transparent" }} />
                                         About Us
                                     </div>
                                 </Link>
@@ -182,7 +182,7 @@ export default function TopHeader() {
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
                                             <div className='d-flex' style={{ alignItems: "center" }}>
-                                                <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "20px" }} />
+                                                {/* <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "20px" }} /> */}
                                                 Products
                                             </div>
                                         </NavLink>

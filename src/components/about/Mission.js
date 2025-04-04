@@ -29,8 +29,8 @@ const Mission = () => {
                                 </div>
                                 <div className='d-flex flex-column align-items-start gap-56'>
                                     <div className='d-flex align-items-center gap-32'>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 01
                                             </h6>
                                         </div>
@@ -42,8 +42,8 @@ const Mission = () => {
                                         </div>
                                     </div>
                                     <div className='d-flex align-items-center gap-32'>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 02
                                             </h6>
                                         </div>
@@ -56,8 +56,8 @@ const Mission = () => {
                                         </div>
                                     </div>
                                     <div className='d-flex align-items-center gap-32'>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 03
                                             </h6>
                                         </div>
@@ -69,8 +69,8 @@ const Mission = () => {
                                         </div>
                                     </div>
                                     <div className='d-flex align-items-center gap-32'>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 04
                                             </h6>
                                         </div>
@@ -82,8 +82,8 @@ const Mission = () => {
                                         </div>
                                     </div>
                                     <div className='d-flex align-items-center gap-32'>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 05
                                             </h6>
                                         </div>

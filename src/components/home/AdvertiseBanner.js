@@ -90,7 +90,7 @@ export default function AdvertiseBanner() {
                                             >
                                                 View Products{" "}
                                                 <span className="icon text-xl d-flex">
-                                                    <i className="ph ph-shopping-cart-simple" />{" "}
+                                                    {/* <i className="ph ph-shopping-cart-simple" />{" "} */}
                                                 </span>
                                             </Link>
                                         </div>

@@ -98,7 +98,7 @@ const ProductBanner = () => {
                 </div>
                 <div className="row g-12">
                     <div className="col-md-4">
-                        <div className="hot-deals position-relative rounded-16 bg-main-600 overflow-hidden z-1 text-center h-100 d-flex flex-col justify-content-center align-items-center">
+                        <div className="hot-deals position-relative rounded-16 bg-main-600 overflow-hidden z-1 text-center h-100 d-flex flex-col justify-content-center align-items-center" style={{ padding: '25px 0px' }}>
                             {/* <img
                                 src="assets/images/shape/offer-shape.png"
                                 alt=""
@@ -132,7 +132,7 @@ const ProductBanner = () => {
                                 {
                                     products.map((product, index) => (
                                         <div key={ product._id || index } >
-                                            <div style={{ height: '26rem', overflow: 'hidden' }} className="d-flex justify-content-between flex-column border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
+                                            <div style={{ height: '26rem', overflow: 'hidden', padding: '10px' }} className="d-flex justify-content-between flex-column border border-gray-100 hover-border-main-600 rounded-16 position-relative transition-2">
                                                 <Link
                                                     to={`/product-details/${product.id}`}
                                                     style={{

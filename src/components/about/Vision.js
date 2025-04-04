@@ -27,8 +27,8 @@ const Vision = () => {
                                                 Eco-friendly solutions for long-term, sustainable plant growth.
                                             </p>
                                         </div>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 01
                                             </h6>
                                         </div>
@@ -41,8 +41,8 @@ const Vision = () => {
                                                 Cutting-edge, eco-friendly solutions for efficient growth.
                                             </p>
                                         </div>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 02
                                             </h6>
                                         </div>
@@ -54,8 +54,8 @@ const Vision = () => {
                                                 Driving sustainable growth for a greener, healthier world.
                                             </p>
                                         </div>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 03
                                             </h6>
                                         </div>
@@ -67,8 +67,8 @@ const Vision = () => {
                                                 Empowering farmers with innovative, and cost-effective solutions.
                                             </p>
                                         </div>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 04
                                             </h6>
                                         </div>
@@ -80,8 +80,8 @@ const Vision = () => {
                                                 Committed to eco-friendly practices for a greener, healthier planet.
                                             </p>
                                         </div>
-                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle'>
-                                            <h6 className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
+                                        <div className='w-90 h-90 flex-center bg-main-100 rounded-circle' style={{ minWidth: '5.625rem', minHeight: '5.625rem' }}>
+                                            <h6 style={{ minWidth: '3.75rem', maxHeight: '3.75rem' }} className='mb-0 w-60 h-60 bg-main-600 text-white d-flex align-items-center justify-content-center rounded-circle border border-5 border-white fw-medium'>
                                                 05
                                             </h6>
                                         </div>
