@@ -10,6 +10,7 @@ const Testimonial = () => {
             onClick={onClick}
             type='button'
             id='testi-next'
+            style={window.innerWidth < 768 ? { right: '60px' , marginBottom: '10px'} : {}}
             className='slick-next slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 text-white transition-1'
         >
             <i className='ph ph-caret-right'></i>
@@ -21,6 +22,7 @@ const Testimonial = () => {
             onClick={onClick}
             type='button'
             id='testi-prev'
+            style={window.innerWidth < 768 ? { left: '60px', marginBottom: '10px' } : {}}
             className='slick-prev slick-arrow flex-center rounded-circle border border-gray-100 hover-border-main-600 text-xl hover-bg-main-600 text-white transition-1'
         >
             <i className='ph ph-caret-left'></i>
@@ -48,6 +50,14 @@ const Testimonial = () => {
         speed: 900,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 768, // mobile and small tablets
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
     };
 
     const testimonialsData = [
@@ -92,7 +102,7 @@ const Testimonial = () => {
                 <div className='row gy-4 align-items-center'>
                     <div className='col-xl-1'>
                         <div className='section-heading mb-0 d-flex flex-column align-items-center writing-mode'>
-                            <p className='text-white'>
+                            <p className='text-white' style={window.innerWidth < 768 ? { textAlign: 'center', marginBottom: '20px' } : {}}>
                                 Our proudest moments that showcase passion, progress, and purpose.
                             </p>
                             <h5 className='text-white mb-0 text-uppercase'>
@@ -101,7 +111,7 @@ const Testimonial = () => {
                         </div>
                     </div>
                     <div className='col-xl-11'>
-                        <div className='position-relative'>
+                        <div className='position-relative' style={window.innerWidth < 768 ? { marginBottom: '40px' } : {}}>
                             <Slider
                                 {...mainSliderSettings}
                                 ref={mainSliderRef}
