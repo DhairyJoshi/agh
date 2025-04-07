@@ -57,7 +57,7 @@ const ProductDetails = () => {
                                                     objectFit: 'fill',
                                                     objectPosition: 'center'
                                                 }}
-                                                src={ `https://api.farmerconnects.com${product.image_1}` } alt="Main Product" />
+                                                src={ `https://api.farmerconnects.com${product.image_0}` } alt="Main Product" />
                                             </div>
                                         </div>
                                         <div className="mt-24">
@@ -90,7 +90,7 @@ const ProductDetails = () => {
                                                 <div
                                                     className="px-12 py-8 text-sm rounded-8 flex-align gap-8 text-gray-900 border border-gray-200 hover-border-main-600 hover-text-main-600"
                                                 >
-                                                    { product.category_id.category_name }
+                                                    { product.category_id }
                                                 </div>
                                         </div>
                                         {/* <div className="my-32 flex-align flex-wrap gap-12">

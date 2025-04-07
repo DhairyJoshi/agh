@@ -9,7 +9,7 @@ const ProductsCard = ({ product }) => {
                 className="w-100 d-flex justify-content-center align-items-center overflow-hidden rounded-8 position-relative" style={{ height: '16rem' }}
             >
                 <img
-                    src={ `https://api.farmerconnects.com${product.image_1}` } alt="prod_img"
+                    src={ `https://api.farmerconnects.com${product.image_0}` } alt="prod_img"
                     style={{ width:'auto', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                 />
                 { product.bestsale &&

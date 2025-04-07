@@ -13,5 +13,4 @@ export const ROUTES = {
     cancellationPolicy: '/cancellation-policy',
     paymentSuccess: '/payment-success',
     offers: '/offers',
-
 }

@@ -20,12 +20,12 @@ const Seeds = () => {
 
                 <div className='d-flex flex-wrap justify-content-center'>
                     {cropDetails.map((crop, index) => (
-                        <div key={index} className='seed-container'>
+                        <a href='/seed-details' key={index} className='seed-container'>
                             <div className='seed-image-container'>
                                 <img className='seed-image' src={crop.imgUrl} alt={crop.title} />
                             </div>
                             <h6 className='seed-title'>{crop.title}</h6>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>

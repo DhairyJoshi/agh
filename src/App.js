@@ -16,7 +16,7 @@ import Gallery from './components/gallery/Gallery';
 import ProductDetailsPage from './components/product-details/ProductDetailsPage';
 import Inquiry from './components/inquiry/Inquiry';
 import About from './components/about/About';
-
+import SeedDetailsPage from './components/seed-details/SeedDetailsPage';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
       <Routes>
         <Route path={ROUTES.home} element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/seed-details" element={<SeedDetailsPage />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/inquiry/:id" element={<Inquiry />} />
         <Route path="/gallery" element={<Gallery />} />
