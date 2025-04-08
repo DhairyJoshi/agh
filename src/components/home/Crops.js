@@ -4,8 +4,40 @@ import CropCard from './CropCard'; // Adjust path if needed
 
 const cropData = [
   {
-    cropName: "Tomato",
-    cropImage: "assets/images/crops/tomato.png",
+    cropName: "Chilli",
+    cropImage: "assets/images/crops/chilli.png",
+    fertilizerImages: [
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/MrChilli.png",
+      "assets/images/crops/Mantra.png",
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/Perfect.png"
+    ]
+  },
+  {
+    cropName: "Cotton",
+    cropImage: "assets/images/crops/cotton.png",
+    fertilizerImages: [
+      "assets/images/crops/MrChilli.png",
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/Temper.jpeg",
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/Kick.png"
+    ]
+  },
+  {
+    cropName: "Paddy",
+    cropImage: "assets/images/crops/paddy.png",
+    fertilizerImages: [
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/RapiGrow.png",
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/Vajra.png",
+    ]
+  },
+  {
+    cropName: "Maize",
+    cropImage: "assets/images/crops/paddy.png",
     fertilizerImages: [
       "assets/images/crops/bottle4.png",
       "assets/images/crops/bottle4.png",
@@ -15,8 +47,8 @@ const cropData = [
     ]
   },
   {
-    cropName: "Paddy",
-    cropImage: "assets/images/crops/paddy.png",
+    cropName: "Tomato",
+    cropImage: "assets/images/crops/tomato.png",
     fertilizerImages: [
       "assets/images/crops/bottle4.png",
       "assets/images/crops/bottle4.png",
@@ -36,61 +68,6 @@ const cropData = [
       "assets/images/crops/bottle5.png"
     ]
   },
-  {
-    cropName: "Cotton",
-    cropImage: "assets/images/crops/cotton.png",
-    fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
-    ]
-  },
-  {
-    cropName: "Citrius",
-    cropImage: "assets/images/crops/citrius.png",
-    fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
-    ]
-  },
-  {
-    cropName: "Chilli",
-    cropImage: "assets/images/crops/chilli.png",
-    fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
-    ]
-  },
-  {
-    cropName: "Cashew",
-    cropImage: "assets/images/crops/cashew.png",
-    fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
-    ]
-  },
-  {
-    cropName: "Watermelon",
-    cropImage: "assets/images/crops/watermelon.png",
-    fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
-    ]
-  }
 ];
 
 const Crops = () => {

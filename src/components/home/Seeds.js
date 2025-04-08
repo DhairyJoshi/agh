@@ -1,17 +1,8 @@
 import React from 'react'
+import seedDetails from '../seed-details/seedData'; // adjust path as needed
+import { Link } from 'react-router-dom';
 
 const Seeds = () => {
-
-    const cropDetails = [
-        { imgUrl: "assets/images/crops/wheat-seeds.jpeg", title: "Wheat" },
-        { imgUrl: "assets/images/crops/rice-seeds.jpg", title: "Rice" },
-        { imgUrl: "assets/images/crops/corn-seeds.jpg", title: "Corn" },
-        { imgUrl: "assets/images/crops/soybean-seeds.png", title: "Soybean" },
-        { imgUrl: "assets/images/crops/sunflower-seeds.png", title: "Sunflower" },
-        { imgUrl: "assets/images/crops/cotton-seeds.png", title: "Cotton" },
-        { imgUrl: "assets/images/crops/mustard-seeds.png", title: "Mustard" },
-        { imgUrl: "assets/images/crops/groundnut-seeds.png", title: "Groundnut" },
-    ];
 
     return (
         <div className='container container-lg'>
@@ -19,13 +10,13 @@ const Seeds = () => {
                 <h3 className='text-center mb-20'>Popular Seeds</h3>
 
                 <div className='d-flex flex-wrap justify-content-center'>
-                    {cropDetails.map((crop, index) => (
-                        <a href='/seed-details' key={index} className='seed-container'>
+                    {seedDetails.map((seed, index) => (
+                        <Link to={`/seed-details/${seed.slug}`} href='/seed-details' key={index} className='seed-container'>
                             <div className='seed-image-container'>
-                                <img className='seed-image' src={crop.imgUrl} alt={crop.title} />
+                                <img className='seed-image' src={seed.imgUrl} alt={seed.title} />
                             </div>
-                            <h6 className='seed-title'>{crop.title}</h6>
-                        </a>
+                            <h6 className='seed-title'>{seed.title}</h6>
+                        </Link>
                     ))}
                 </div>
             </div>

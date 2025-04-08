@@ -140,7 +140,7 @@ export default function TopHeader() {
             {/* ==================== Mobile Menu End Here ==================== */}
 
             {/* ==================== Header Start Here ==================== */}
-            <header className={`header bg-white border-bottom border-gray-100 d-flex align-items-center justify-content-center ${scroll && "fixed-header"}`} style={{ height: '10vh' }}>
+            <header className={`header bg-white border-bottom border-gray-100 d-flex align-items-center justify-content-center ${scroll && "fixed-header"}`} style={{ height: '13vh' }}>
                 <div className="container container-lg">
                     <nav className="header-inner d-flex justify-content-between gap-8">
                         <div className="flex-align menu-category-wrapper " style={{ width: "100%", justifyContent: "space-between" }}>
@@ -148,7 +148,7 @@ export default function TopHeader() {
                             <div className="category on-hover-item">
                                 <Link to="/" className="link" style={{ padding: "10px 0px" }}>
                                     {/* Large Screen Logo */}
-                                    <img src={logo} alt="Logo" style={{ width: "60px" }} />
+                                    <img src={logo} alt="Logo" style={{ width: "80px" }} />
                                 </Link>
                             </div>
                             {/* Category Dropdown End  */}
@@ -161,8 +161,8 @@ export default function TopHeader() {
                                         <NavLink to="/" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
-                                                <i className="ph ph-house mr-1" style={{ fontSize: "20px" }} />
+                                            <div className='d-flex text-xl' style={{ alignItems: "center" }}>
+                                                <i className="ph ph-house text-xl mr-1" style={{ fontSize: "20px" }} />
                                                 Home
                                             </div>
                                         </NavLink>
@@ -171,8 +171,8 @@ export default function TopHeader() {
                                         <NavLink to="/gallery" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
-                                                <i className="ph ph-images mr-1" style={{ fontSize: "20px" }} />
+                                            <div className='d-flex text-xl' style={{ alignItems: "center" }}>
+                                                <i className="ph ph-images text-xl mr-1" style={{ fontSize: "20px" }} />
                                                 Gallery
                                             </div>
                                         </NavLink>
@@ -181,7 +181,7 @@ export default function TopHeader() {
                                         <NavLink to="/products" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
+                                            <div className='d-flex text-xl' style={{ alignItems: "center" }}>
                                                 {/* <i className="ph ph-shopping-cart mr-1" style={{ fontSize: "20px" }} /> */}
                                                 Products
                                             </div>
@@ -191,8 +191,8 @@ export default function TopHeader() {
                                         <NavLink to="/contact" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
-                                                <i className="ph ph-headset mr-1" style={{ fontSize: "20px" }} />
+                                            <div className='d-flex text-xl' style={{ alignItems: "center" }}>
+                                                <i className="ph ph-headset text-xl mr-1" style={{ fontSize: "20px" }} />
                                                 Contact
                                             </div>
                                         </NavLink>
@@ -201,7 +201,7 @@ export default function TopHeader() {
                                         <NavLink to="/about" className={(navData) =>
                                             navData.isActive ? "nav-menu__link activePage" : "nav-menu__link"
                                         }>
-                                            <div className='d-flex' style={{ alignItems: "center" }}>
+                                            <div className='d-flex text-xl' style={{ alignItems: "center" }}>
                                                 About Us
                                             </div>
                                         </NavLink>
@@ -216,7 +216,7 @@ export default function TopHeader() {
                             <button
                                 onClick={handleMenuToggle}
                                 type="button"
-                                className="toggle-mobileMenu d-lg-none ms-3n text-gray-800 text-4xl d-flex"
+                                className="toggle-mobileMenu d-lg-none ms-3n text-gray-800 text-5xl d-flex"
                             >
                                 {" "}
                                 <i className="ph ph-list" />{" "}

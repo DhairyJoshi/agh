@@ -2,13 +2,13 @@ import React from 'react';
 
 const CropCard = ({ cropName, cropImage, fertilizerImages }) => {
     return (
-        <div className="col-xxl-3 col-lg-4 col-sm-6">
+        <div className="col-xxl-4 col-lg-4 col-sm-6">
             <div className="vendor-card text-center px-16 pb-24">
                 <div>
                     <img
                         src={cropImage}
                         className="vendor-card__logo"
-                        style={{ height: '7rem', width: '7rem' }}
+                        style={{ height: '10rem', width: '10rem' }}
                         alt={cropName}
                     />
                     <h6 className="title mt-32">{cropName}</h6>
@@ -17,9 +17,10 @@ const CropCard = ({ cropName, cropImage, fertilizerImages }) => {
                     {fertilizerImages.map((img, index) => (
                         <div
                             key={index}
+                            style={{ overflow: 'hidden' }}
                             className="vendor-card__item bg-white rounded-circle flex-center"
                         >
-                            <img src={img} alt={`fertilizer-${index}`} />
+                            <img style={{ width: 'auto', height: '100%', objectFit: 'contain', objectPosition: 'center' }} src={img} alt={`fertilizer-${index}`} />
                         </div>
                     ))}
                 </div>

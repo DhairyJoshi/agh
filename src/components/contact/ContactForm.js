@@ -161,7 +161,7 @@ export default function ContactForm() {
                                     <i className="ph ph-map-pin" />
                                 </span>
                                 <span className="text-md text-gray-900 ">
-                                    MAHINDRA ASHVITHA HAFEEZ PET ROAD <br /> NEAR HITECH CITY MMTS KUKATPALLY, <br />HYDERABAD TELANGANA - 500085
+                                    AGH FERTILIZER INNOVATIONS PVT LIMITED. <br /> Survey No. 273 ,  Near by Shantha Bio Tech, Athvelly, <br /> Medchel, Medchal-Malkajgiri District-501401, Telangana
                                 </span>
                             </div>
                         </div>

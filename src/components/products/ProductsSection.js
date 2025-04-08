@@ -69,7 +69,7 @@ const ProductsSection = () => {
                             >
                                 <i className="ph ph-x" />
                             </button>
-                            <div className="shop-sidebar__box border border-gray-100 rounded-8 px-32 py-16 mb-20">
+                            <div className="shop-sidebar__box border border-gray-100 rounded-8 px-28 py-16 mb-20">
                                 <h6 className="text-xl border-bottom border-gray-100 pb-24 mb-24">
                                     Product Category
                                 </h6>

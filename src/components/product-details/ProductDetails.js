@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -24,6 +24,19 @@ const ProductDetails = () => {
     }, [products, dispatch, fetchProducts]);
 
     const product = products?.find((p) => p.id === parseInt(id));
+
+    const [mainImage, setMainImage] = useState(null);
+
+    useEffect(() => {
+        if (product) {
+            const images = [
+                `https://api.farmerconnects.com${product.image_0}`,
+                `https://api.farmerconnects.com${product.image_1}`,
+                `https://api.farmerconnects.com${product.image_2}`,
+            ];
+            setMainImage(images[0]);
+        }
+    }, [product]);
 
     if (!product) {
         return (
@@ -68,14 +81,16 @@ const ProductDetails = () => {
                                                     objectFit: 'fill',
                                                     objectPosition: 'center'
                                                 }}
-                                                src={ `https://api.farmerconnects.com${product.image_0}` } alt="Main Product" />
+                                                src={mainImage}
+                                                alt="Main Product" />
                                             </div>
                                         </div>
                                         <div className="mt-24">
                                             <div className="product-details__images-slider">
                                                 <Slider {...settingsThumbs}>
                                                     {productImages.map((image, index) => (
-                                                        <div className="center max-w-120 max-h-120 h-100 flex-center border border-gray-100 rounded-16 p-8" key={index}>
+                                                        <div className="center max-w-120 max-h-120 h-100 flex-center border border-gray-100 rounded-16 p-8" key={index} onClick={() => setMainImage(image)}
+                                                        style={{ cursor: 'pointer' }}>
                                                             <img className='thum' src={image} alt={`Thumbnail ${index}`} />
                                                         </div>
                                                     ))}

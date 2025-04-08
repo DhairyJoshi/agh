@@ -1,5 +1,5 @@
 import React from 'react'
-import imageBg from '../../assets/images/agrochemicals.png'
+import imageBg from '../../assets/images/AGH_ALL_PRODS.png'
 
 export default function NewsLetter() {
     return (
@@ -43,7 +43,7 @@ export default function NewsLetter() {
                                 </style>
                             </div>
                         </div>
-                        <div className="col-xl-6 text-center d-xl-block d-none">
+                        <div style={{ padding: '60px 0px' }} className="col-xl-6 text-center d-xl-block d-none">
                             <img src={imageBg} alt="" />
                         </div>
                     </div>
