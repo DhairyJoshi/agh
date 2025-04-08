@@ -8,7 +8,7 @@ const CropCard = ({ cropName, cropImage, fertilizerNames, fertilizerImages }) =>
                     <img
                         src={cropImage}
                         className="vendor-card__logo"
-                        style={{ height: '10rem', width: '10rem' }}
+                        style={{ height: '10rem', width: '10rem', borderRadius: '100%' }}
                         alt={cropName}
                     />
                     <h6 className="title mt-32">{cropName}</h6>

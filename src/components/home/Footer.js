@@ -29,27 +29,27 @@ export default function Footer() {
                         <ul className="footer-menu d-flex flex-column align-items-center align-items-lg-start">
                             <li className="mb-16">
                                 <Link to="#" className="text-gray-600 hover-text-main-600">
-                                    Nitrogen Based
+                                    Organic fertilizer 
                                 </Link>
                             </li>
                             <li className="mb-16">
                                 <Link to={ROUTES.MyOrders} className="text-gray-600 hover-text-main-600">
-                                    Phosphorus Based
+                                    Organic pesticide
                                 </Link>
                             </li>
                             <li className="mb-16">
                                 <Link to={'/cart'} className="text-gray-600 hover-text-main-600">
-                                    Potassium-Based
+                                    Micronutrients
                                 </Link>
                             </li>
                             <li className="mb-16">
                                 <Link to={ROUTES.wishlist} className="text-gray-600 hover-text-main-600">
-                                    Compound Fertilizers
+                                    Water soluble fertilizer
                                 </Link>
                             </li>
                             <li className="">
                                 <Link to={ROUTES.wishlist} className="text-gray-600 hover-text-main-600">
-                                    Organic Fertilizers
+                                    Bio fertilizer and pesticides
                                 </Link>
                             </li>   
                         </ul>
@@ -57,12 +57,6 @@ export default function Footer() {
                     <div className="footer-item d-flex flex-column align-items-center align-items-lg-start">
                         <h6 className="footer-item__title">Information</h6>
                         <ul className="footer-menu d-flex flex-column align-items-center align-items-lg-start">
-                            <li className="mb-16">
-                                <Link to="/shop" className="text-gray-600 hover-text-main-600">
-                                    Become a Vendor
-                                </Link>
-                            </li>
-
                             <li className="mb-16">
                                 <Link to={ROUTES.privacyPolicy} className="text-gray-600 hover-text-main-600">
                                     Privacy Policy

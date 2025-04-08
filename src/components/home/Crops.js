@@ -57,7 +57,7 @@ const cropData = [
   },
   {
     cropName: "Maize",
-    cropImage: "assets/images/crops/paddy.png",
+    cropImage: "assets/images/crops/maize.png",
     fertilizerNames: [
       "Bhoo Shakti",
       "Mr Chilli",
