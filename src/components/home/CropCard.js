@@ -17,10 +17,13 @@ const CropCard = ({ cropName, cropImage, fertilizerNames, fertilizerImages }) =>
                     {fertilizerImages.map((img, index) => (
                         <div
                             key={index}
-                            style={{ overflow: 'hidden', cursor: 'pointer', position: 'relative' }}
-                            className="vendor-card__item bg-white rounded-circle flex-center"
+                            className="fertilizerTooltip-container vendor-card__item bg-white rounded-circle flex-center"
                         >
-                            <img style={{ width: 'auto', height: '100%', objectFit: 'contain', objectPosition: 'center' }} src={img} alt={`fertilizer-${index}`} />
+                            <div className="image-container">
+                                <img src={img} alt={`fertilizer-${index}`} />
+                            </div>
+
+                            <span className="fertilizerTooltip" style={{ zIndex: '100' }}>{fertilizerNames[index]}</span>
                         </div>
                     ))}
                 </div>
