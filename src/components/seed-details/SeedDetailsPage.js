@@ -5,6 +5,7 @@ import TopHeader from '../home/TopHeader'
 import Breadcrumbs from '../common/Breadcrumbs'
 import Footer from '../home/Footer'
 import SeedDetails from './SeedDetails'
+import ScrollToTopOnRouteChange from '../common/ScrollToTopOnRouterChange'
 
 const SeedDetailsPage = () => {
   return (
@@ -12,6 +13,8 @@ const SeedDetailsPage = () => {
         <PreloaderTwo />
 
         <ScrollToTop smooth color="#299E60" />
+
+        <ScrollToTopOnRouteChange />
 
         <TopHeader />
 

@@ -6,6 +6,13 @@ const cropData = [
   {
     cropName: "Chilli",
     cropImage: "assets/images/crops/chilli.png",
+    fertilizerNames: [
+      "Bhoo Shakti",
+      "Mr Chilli",
+      "Mantra",
+      "Tiger",
+      "Perfect",
+    ],
     fertilizerImages: [
       "assets/images/crops/Bhu_Shakti.png",
       "assets/images/crops/MrChilli.png",
@@ -17,6 +24,13 @@ const cropData = [
   {
     cropName: "Cotton",
     cropImage: "assets/images/crops/cotton.png",
+    fertilizerNames: [
+      "Mr Chilli",
+      "Bhoo Shakti",
+      "Temper",
+      "Tiger",
+      "Kick",
+    ],
     fertilizerImages: [
       "assets/images/crops/MrChilli.png",
       "assets/images/crops/Bhu_Shakti.png",
@@ -28,6 +42,12 @@ const cropData = [
   {
     cropName: "Paddy",
     cropImage: "assets/images/crops/paddy.png",
+    fertilizerNames: [
+      "Tiger",
+      "RapiGrow GR",
+      "Bhoo Shakti",
+      "Vajra",
+    ],
     fertilizerImages: [
       "assets/images/crops/Tiger.png",
       "assets/images/crops/RapiGrow.png",
@@ -38,34 +58,55 @@ const cropData = [
   {
     cropName: "Maize",
     cropImage: "assets/images/crops/paddy.png",
+    fertilizerNames: [
+      "Bhoo Shakti",
+      "Mr Chilli",
+      "Mantra",
+      "Tiger",
+      "Perfect",
+    ],
     fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/MrChilli.png",
+      "assets/images/crops/Mantra.png",
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/Perfect.png"
     ]
   },
   {
     cropName: "Tomato",
     cropImage: "assets/images/crops/tomato.png",
+    fertilizerNames: [
+      "Bhoo Shakti",
+      "Mr Chilli",
+      "Mantra",
+      "Tiger",
+      "Perfect",
+    ],
     fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/MrChilli.png",
+      "assets/images/crops/Mantra.png",
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/Perfect.png"
     ]
   },
   {
     cropName: "Mango",
     cropImage: "assets/images/crops/mango.png",
+    fertilizerNames: [
+      "Bhoo Shakti",
+      "Mr Chilli",
+      "Mantra",
+      "Tiger",
+      "Perfect",
+    ],
     fertilizerImages: [
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle3.png",
-      "assets/images/crops/bottle4.png",
-      "assets/images/crops/bottle5.png"
+      "assets/images/crops/Bhu_Shakti.png",
+      "assets/images/crops/MrChilli.png",
+      "assets/images/crops/Mantra.png",
+      "assets/images/crops/Tiger.png",
+      "assets/images/crops/Perfect.png"
     ]
   },
 ];
@@ -83,6 +124,7 @@ const Crops = () => {
               key={index}
               cropName={crop.cropName}
               cropImage={crop.cropImage}
+              fertilizerNames={crop.fertilizerNames}
               fertilizerImages={crop.fertilizerImages}
             />
           ))}

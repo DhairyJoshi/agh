@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CropCard = ({ cropName, cropImage, fertilizerImages }) => {
+const CropCard = ({ cropName, cropImage, fertilizerNames, fertilizerImages }) => {
     return (
         <div className="col-xxl-4 col-lg-4 col-sm-6">
             <div className="vendor-card text-center px-16 pb-24">
@@ -17,7 +17,7 @@ const CropCard = ({ cropName, cropImage, fertilizerImages }) => {
                     {fertilizerImages.map((img, index) => (
                         <div
                             key={index}
-                            style={{ overflow: 'hidden' }}
+                            style={{ overflow: 'hidden', cursor: 'pointer', position: 'relative' }}
                             className="vendor-card__item bg-white rounded-circle flex-center"
                         >
                             <img style={{ width: 'auto', height: '100%', objectFit: 'contain', objectPosition: 'center' }} src={img} alt={`fertilizer-${index}`} />
