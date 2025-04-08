@@ -42,7 +42,7 @@ const ProductBanner = () => {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            fetchProducts();
         }
     }, [products, dispatch, fetchProducts]);
 
@@ -144,7 +144,7 @@ const ProductBanner = () => {
                                                         alignItems: 'center',
                                                     }}
                                                 >
-                                                    <img src={`https://api.farmerconnects.com${product.image_1}`} alt="prod_image"
+                                                    <img src={`https://api.farmerconnects.com${product.image_0}`} alt="prod_image"
                                                         style={{
                                                             objectFit: 'cover',
                                                             objectPosition: 'center'
@@ -162,7 +162,7 @@ const ProductBanner = () => {
                                                             <i className="ph-fill ph-storefront" />
                                                         </span>
                                                         <span className="text-gray-500 text-xs">
-                                                            By {product.category_id.category_name}
+                                                            Cat: {product.category_id}
                                                         </span>
                                                     </div>
                                                     <div className="product-card__content mt-12">

@@ -19,11 +19,21 @@ const ProductDetails = () => {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            fetchProducts();
         }
     }, [products, dispatch, fetchProducts]);
 
     const product = products?.find((p) => p.id === parseInt(id));
+
+    if (!product) {
+        return (
+            <section className="product-details pt-20 pb-40">
+                <div className="container container-lg text-center py-40">
+                    <p>Loading product details...</p>
+                </div>
+            </section>
+        );
+    }
 
     const productImages = [
         `https://api.farmerconnects.com${product.image_0}`,
@@ -39,6 +49,7 @@ const ProductDetails = () => {
         slidesToScroll: 1,
         focusOnSelect: true,
     };
+    
     return (
         <section className="product-details pt-20 pb-40">
             <div className="container container-lg">

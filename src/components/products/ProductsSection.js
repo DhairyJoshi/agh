@@ -18,7 +18,7 @@ const ProductsSection = () => {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            fetchProducts();
         }
     }, [products, dispatch, fetchProducts]);
 
@@ -43,15 +43,15 @@ const ProductsSection = () => {
 
     const productCategories = {};
     products.forEach((product) => {
-        if (!productCategories[product.category_id.category_name]) {
-            productCategories[product.category_id.category_name] = [];
+        if (!productCategories[product.category_id]) {
+            productCategories[product.category_id] = [];
         }
-        productCategories[product.category_id.category_name].push(product);
+        productCategories[product.category_id].push(product);
     });
 
     // Filter products based on the selected category
     const filteredProducts = selectedCategory
-        ? products.filter(product => product.category_id.category_name === selectedCategory)
+        ? products.filter(product => product.category_id === selectedCategory)
         : products;
 
     return (

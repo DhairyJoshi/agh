@@ -16,7 +16,7 @@ const Suggestions = () => {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            fetchProducts();
         }
     }, [products, dispatch, fetchProducts]);
 

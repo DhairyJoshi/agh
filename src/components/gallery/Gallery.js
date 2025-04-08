@@ -23,7 +23,7 @@ export default function Gallery() {
 
     useEffect(() => {
         if (!products || products.length === 0) {
-            dispatch(fetchProducts());
+            fetchProducts();
         }
     }, [products, dispatch, fetchProducts]);
 
