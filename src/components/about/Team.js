@@ -20,7 +20,7 @@ const Team = () => {
 
     return (
         <div className="flex flex-colummn justify-content-center align-items-center">
-            <div className="flex flex-colummn justify-content-center align-items-center section-heading ms-auto text-center" style={{ width: '100%', padding: '3rem 10rem' }}>
+            <div className="flex flex-colummn justify-content-center align-items-center section-heading ms-auto text-center responsive-padding" style={{ width: '100%' }}>
                 <h2>Our Team</h2>
                 <span className="text-gray-600 text-xl">
                     Backed by agronomists, researchers, and field experts, our team is dedicated to delivering cutting-edge, eco-friendly fertilizer solutions that boost crop yields, enrich soil health, and support sustainable farming practices worldwide.
