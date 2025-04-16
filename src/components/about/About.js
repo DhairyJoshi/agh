@@ -10,6 +10,7 @@ import FeaturesSection from "./FeaturesSection";
 import Vision from "./Vision";
 import Mission from "./Mission";
 import Testimonial from "./Testimonial";
+import Team from "./Team";
  
 export default function About() {
     return (
@@ -40,7 +41,10 @@ export default function About() {
                 <section className='py-80'>
                     <Testimonial />
                 </section>
+            </ScrollAnimation>
 
+            <ScrollAnimation animateIn="fadeIn" duration={2} animateOnce={true}>
+                <Team />
             </ScrollAnimation>
 
             <Footer />

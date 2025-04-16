@@ -578,15 +578,18 @@
   .slick-next {
     right: -100px !important;
   }
+
   .slick-prev {
     left: -100px !important;
   }
+
   .slick-arrow .ph {
     color: #ddd;
   }
 }
 
 .horizontal-slider {
+
   .example-track.example-track-0,
   .example-track.example-track-2 {
     height: 8px;
@@ -738,8 +741,10 @@
   .group:hover .expand-icons {
     display: flex !important;
   }
+
   .group:hover .expand-btn {
     background-color: var(--main-two-600) !important;
+
     .ph {
       transform: rotate(45deg);
       color: #fff;
@@ -751,6 +756,7 @@
   .slick-arrow {
     transform: translateY(0);
   }
+
   .top-brand__slider .slick-arrow {
     top: -68px;
   }
@@ -764,6 +770,7 @@
     transform: translateX(-50%);
     left: 46%;
   }
+
   .slick-arrow.slick-next {
     position: absolute;
     bottom: -70px;
@@ -771,6 +778,7 @@
     transform: translateX(-50%);
     right: 46%;
   }
+
   .slick-arrow {
     i {
       color: #fff;
@@ -783,6 +791,7 @@
     z-index: 9999;
     transform: translateY(0);
   }
+
   .instagram-slider .slick-arrow {
     top: 50%;
     transform: translateY(-50%);
@@ -795,4 +804,63 @@
       display: grid;
     }
   }
+}
+
+.media-types :focus {
+  outline: 0;
+  border-color: #299E60;
+  box-shadow: 0 0 0 4px #299E60;
+}
+
+.media-types-container div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.media-types-container label {
+ width:33%;
+ font-size: large;
+}
+
+.media-types-container input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.media-types-container input[type="radio"]:checked+span {
+  box-shadow: 0 0 0 0.0625em #299E60;
+  background-color: #299E60;
+  z-index: 1;
+  color: white;
+}
+
+.media-types-container label span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.375em .75em;
+  position: relative;
+  margin-left: .0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: .05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color .5s ease;
+}
+
+.media-types-container label:first-child span {
+  border-radius: .375em 0 0 .375em;
+}
+
+.media-types-container label:last-child span {
+  border-radius: 0 .375em .375em 0;
 }
