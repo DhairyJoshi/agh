@@ -30,7 +30,7 @@ const Team = () => {
             <div className="d-flex flex-wrap justify-content-center align-items-center" style={{ gap: '20px' }}>
                 {team && team.length > 0 ? (
                     team.map(member => (
-                        <div key={member.id} className="feature-item text-center">
+                        <div key={member.id} className="feature-item text-center" style={{ width: '13rem', height: 'auto' }}>
                             <div className="feature-item__thumb rounded-circle"  style={{ overflow: 'hidden' }}>
                                 <div className="w-100 h-100 flex-center">
                                     <img src={`https://api.farmerconnects.com${member.image}`} alt={member.name} />

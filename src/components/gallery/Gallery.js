@@ -49,6 +49,20 @@ export default function Gallery() {
         });
     }, []);
 
+    const convertToEmbedURL = (url) => {
+        try {
+            const ytRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([\w-]+)/;
+            const match = url.match(ytRegex);
+            if (match && match[1]) {
+                return `https://www.youtube.com/embed/${match[1]}`;
+            }
+        } catch (e) {
+            console.error("Invalid YouTube URL:", url);
+        }
+        return url;
+    };
+
+
     const filteredGallery = gallery.filter((item) => {
         const type = item.gallery_type?.toLowerCase();
         if (mediaType === 'images') return type === 'image';
@@ -113,15 +127,18 @@ export default function Gallery() {
                             }}
                         >
                             {item.gallery_type?.toLowerCase() === 'video' ? (
-                                <iframe
-                                    width="350"
-                                    height="250"
-                                    src={item.video_url.replace('watch?v=', 'embed/').replace('shorts/', 'embed/')}
-                                    title={`Video ${index + 1}`}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
+                                <div style={{ width: '350px', height: '250px', overflow: 'hidden' }}>
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={convertToEmbedURL(item.video_url)}
+                                        title={`Video ${index + 1}`}
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        style={{ display: 'block', verticalAlign: 'top' }}
+                                    ></iframe>
+                                </div>
                             ) : (
                                 <a href={`https://api.farmerconnects.com${item.image}`}>
                                     <img
